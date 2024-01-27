@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1997213757}
   rotationSpeed: 5
+  CameraCooldown: 2
 --- !u!1 &728168024
 GameObject:
   m_ObjectHideFlags: 0

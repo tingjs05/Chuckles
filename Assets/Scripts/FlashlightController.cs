@@ -16,10 +16,15 @@ public class FlashlightController : MonoBehaviour
 
     private bool isHoldingFlashlight = true;
 
+    [SerializeField] private float CameraCooldown;
+    private float timeSinceLastFlash;
+
     private void Start()
     {
         flashlight = GameObject.Find("Flashlight").GetComponent<Light>();
         lantern = GameObject.Find("Lantern").GetComponent<Light>();
+
+        timeSinceLastFlash = CameraCooldown;
     }
 
     void Update()
@@ -72,11 +77,13 @@ public class FlashlightController : MonoBehaviour
             {
                 flashlight.enabled = true;
             }
-            else
+            else if (timeSinceLastFlash > CameraCooldown)
             {
+                timeSinceLastFlash = 0f;
                 StartCoroutine(CameraFlash());
             }
         }
+        timeSinceLastFlash += Time.deltaTime;
     }
 
     void SwapItem()
