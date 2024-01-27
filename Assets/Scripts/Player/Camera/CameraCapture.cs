@@ -12,7 +12,9 @@ public class CameraCapture : MonoBehaviour
 
     [Header("Capture Quality")]
     [SerializeField] private float basePictureQuality = 100f;
-    [SerializeField] private float movingPenalty = 10f;
+    [SerializeField] private float movingPenalty = 65f;
+    [SerializeField] private float distancePenalty = 25f;
+    [SerializeField] private float centralisedPenalty = 10f;
     
     private FlashlightController flashlight;
     private Movement movement;

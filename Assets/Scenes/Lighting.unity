@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d731f79bb529a4ba39ed8cfacdfdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  captureCooldown: 0.1
 --- !u!65 &1869583026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -838,7 +839,9 @@ MonoBehaviour:
   captureDelay: 0.05
   captureArea: {fileID: 1869583025}
   basePictureQuality: 100
-  movingPenalty: 10
+  movingPenalty: 65
+  distancePenalty: 25
+  centralisedPenalty: 10
 --- !u!1 &2095938476
 GameObject:
   m_ObjectHideFlags: 0
