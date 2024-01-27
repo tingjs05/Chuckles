@@ -13,7 +13,14 @@ namespace Dictation
                 "ho",
                 "hah",
                 "har",
-                "huh"
+                "huh",
+                "ah",
+                "her",
+                "heh",
+                "hi",
+                "hih",
+                "high",
+                "laugh",
         };
         
 
@@ -27,6 +34,7 @@ namespace Dictation
             int totalVariations = 1 << word.Length;
             List<string> variations = new();
 
+            // Some bit magic to generate all possible variations of capitalization
             for (int i = 0; i < totalVariations; i++)
             {
                 string variation = "";
