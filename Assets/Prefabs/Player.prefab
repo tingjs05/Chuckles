@@ -393,9 +393,10 @@ GameObject:
   - component: {fileID: 8459143769004361392}
   - component: {fileID: 2772820404526233775}
   - component: {fileID: 4945307964600115789}
-  m_Layer: 0
+  - component: {fileID: 7216058145380320788}
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -538,3 +539,15 @@ MonoBehaviour:
   maxDistance: 10
   distanceThreshold: 0.5
   centralisedThreshold: 0.8
+--- !u!114 &7216058145380320788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229870306092936856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfa12a59c2f4c9fac693c12358c9b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

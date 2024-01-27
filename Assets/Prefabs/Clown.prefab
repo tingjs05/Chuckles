@@ -241,3 +241,6 @@ MonoBehaviour:
   patrolRange: 25
   alertRange: 17
   detectionRange: 10
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
