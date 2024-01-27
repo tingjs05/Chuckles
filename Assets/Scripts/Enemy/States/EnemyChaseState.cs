@@ -7,18 +7,24 @@ namespace Enemy
 {
     public class EnemyChaseState : EnemyBaseState
     {
+        EnemyStateMachine enemy;
         Collider[] players;
+        Collider player;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // cache enemy so that event listener can use
+            this.enemy = enemy;
             // set speed to sprint speed
             enemy.Agent.speed = enemy.sprintSpeed;
+            // subscribe to event to listen if photo is taken
+            CameraCapture.TakenPictureOfEnemy += PictureTaken;
         }
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
             // check if player is within range
-            players = Physics.OverlapSphere(enemy.transform.position, enemy.detectionRange, enemy.playerMask);
+            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
 
             // if player is not within range, return to patrol state
             if (players.Length <= 0)
@@ -28,15 +34,31 @@ namespace Enemy
             }
             
             // order player list by distance
-            players = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray();
+            player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
 
             // get the location below the player and try to move there
-            enemy.Agent.SetDestination(players[0].transform.position);
+            enemy.Agent.SetDestination(player.transform.position);
         }
 
         public override void OnExit(EnemyStateMachine enemy)
         {
-            
+            // unsubscribe from event
+            CameraCapture.TakenPictureOfEnemy -= PictureTaken;
+        }
+
+        void PictureTaken(float pictureQuality)
+        {
+            // ensure enemy and player are not null
+            if (enemy == null || player == null) return;
+
+            // check if player is within stun range
+            float dist = Vector3.Distance(enemy.transform.position, player.transform.position);
+
+            // stun the enemy if picture quality is more than threshold, and is within range
+            if (dist <= enemy.stunDistance && pictureQuality >= enemy.pictureQualityStunThreshold)
+            {
+                enemy.SwitchState(enemy.Stun);
+            }
         }
     }
 }

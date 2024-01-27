@@ -14,9 +14,15 @@ namespace Enemy
         public float sprintSpeed = 25f;
 
         [Header("Range Checks")]
-        public float detectionRange = 25f;
+        public float patrolRange = 25f;
         public float alertRange = 15f;
         public float chaseRange = 10f;
+
+        [Header("Stun Variables")]
+        public float stunDuration = 1.5f;
+        public float stunDistance = 12f;
+        [Range(0f, 100f)]
+        public float pictureQualityStunThreshold = 40f;
 
         [Header("Layer Masks")]
         public LayerMask playerMask;
@@ -29,6 +35,7 @@ namespace Enemy
         public EnemyPatrolState Patrol { get; private set; } = new EnemyPatrolState();
         public EnemyAlertState Alert { get; private set; } = new EnemyAlertState();
         public EnemyChaseState Chase { get; private set; } = new EnemyChaseState();
+        public EnemyStunState Stun { get; private set; } = new EnemyStunState();
 
         // action states
         [field: SerializeField] public EnemyBaseState[] EnemyActionStates { get; private set; }
@@ -56,7 +63,7 @@ namespace Enemy
 
         void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireSphere(transform.position, detectionRange);
+            Gizmos.DrawWireSphere(transform.position, patrolRange);
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, alertRange);
             Gizmos.color = Color.red;
@@ -68,6 +75,20 @@ namespace Enemy
             State.OnExit(this);
             State = state;
             State.OnEnter(this);
+        }
+
+        public bool RandomPoint(Vector3 center, float range, out Vector3 result)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            UnityEngine.AI.NavMeshHit hit;
+            if (UnityEngine.AI.NavMesh.SamplePosition(randomPoint, out hit, 1f, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+
+            result = Vector3.zero;
+            return false;
         }
     }
 }

@@ -31,6 +31,7 @@ public class FlashlightController : MonoBehaviour
 
     // public properties
     public bool IsHoldingFlashlight { get; private set; } = true;
+    public bool FlashlightOn { get; private set; } = true;
 
     // public events
     public event Action TakePicture;
@@ -59,6 +60,7 @@ public class FlashlightController : MonoBehaviour
             if (IsHoldingFlashlight)
             {
                 flashlight.enabled = !flashlight.enabled;
+                FlashlightOn = flashlight.enabled;
             }
             else if (cameraFlash == null)
             {
@@ -112,6 +114,7 @@ public class FlashlightController : MonoBehaviour
             lantern.range = lanternRange_camera;
             flashlight.color = cameraFlashColor;
         }
+        FlashlightOn = flashlight.enabled;
     }
 
     IEnumerator CameraFlash()

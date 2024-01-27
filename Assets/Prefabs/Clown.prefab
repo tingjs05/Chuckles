@@ -238,9 +238,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 10
   sprintSpeed: 45
-  detectionRange: 25
+  patrolRange: 25
   alertRange: 17
   chaseRange: 10
+  stunDuration: 1.5
+  stunDistance: 12
+  pictureQualityStunThreshold: 70
   playerMask:
     serializedVersion: 2
     m_Bits: 8
