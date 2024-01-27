@@ -312,9 +312,33 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 2077141217}
+    - target: {fileID: 6518751355443572799, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_Range
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518751355443572799, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_Intensity
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8229870306092936856, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684123444511574132, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_Range
+      value: 29.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_Intensity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_SpotAngle
+      value: 42.014923
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
