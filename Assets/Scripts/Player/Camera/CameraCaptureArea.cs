@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class CameraCaptureArea : MonoBehaviour
 {
-    public static event Action CapturedEnemy;
+    public event Action CapturedEnemy;
 
     void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("Captured " + other.gameObject.name);
-        // check if enemy is clown before invoking event
-        CapturedEnemy?.Invoke();
+        // check if enemy is clown before doing stuff
+        if (other.CompareTag("Enemy")) CapturedEnemy?.Invoke();
     }
 }
