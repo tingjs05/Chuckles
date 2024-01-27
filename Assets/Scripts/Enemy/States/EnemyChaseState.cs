@@ -31,11 +31,7 @@ namespace Enemy
             players = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray();
 
             // get the location below the player and try to move there
-            RaycastHit hit;
-            if (Physics.Raycast(players[0].transform.position, -Vector3.up, out hit, Mathf.Infinity))
-            {
-                enemy.Agent.SetDestination(hit.point);
-            }
+            enemy.Agent.SetDestination(players[0].transform.position);
         }
 
         public override void OnExit(EnemyStateMachine enemy)

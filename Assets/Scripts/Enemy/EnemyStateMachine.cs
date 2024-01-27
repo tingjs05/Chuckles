@@ -41,7 +41,7 @@ namespace Enemy
             // get components
             Agent = GetComponent<NavMeshAgent>();
 
-            // disable rotation for navmesh agent
+            // disable rotation and movement for navmesh agent
             Agent.updateRotation = false;
 
             // set default state
