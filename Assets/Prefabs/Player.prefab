@@ -579,7 +579,7 @@ SpriteRenderer:
   m_GameObject: {fileID: 6330078665716722191}
   m_Enabled: 1
   m_CastShadows: 2
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -590,7 +590,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d2a9fcb23a0d294abd51b9af8b170e2, type: 2}
+  - {fileID: 2100000, guid: 75f58f45d1c7bdf4ab08098d271fc49e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -719,9 +719,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.7218385
+  m_Height: 1.1084449
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.30669677, z: 0}
 --- !u!54 &6842933315671591510
 Rigidbody:
   m_ObjectHideFlags: 0
