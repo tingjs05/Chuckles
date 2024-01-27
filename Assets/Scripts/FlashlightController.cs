@@ -84,6 +84,7 @@ public class FlashlightController : MonoBehaviour
         if (isHoldingFlashlight)
         {
             flashlight.enabled = true;
+            flashlight.spotAngle = 60f;
             lantern.spotAngle = 60f;
         }
         else
