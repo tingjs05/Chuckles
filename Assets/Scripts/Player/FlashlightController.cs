@@ -48,13 +48,13 @@ public class FlashlightController : MonoBehaviour
 
     void HandleInputs()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(PlayerControls.Instance.SwitchItem))
         {
             IsHoldingFlashlight = !IsHoldingFlashlight;
             SwapItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(PlayerControls.Instance.ActivateItem))
         {
             if (IsHoldingFlashlight)
             {

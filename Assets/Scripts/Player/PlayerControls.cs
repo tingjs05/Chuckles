@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Controls")]
+    public KeyCode ActivateItem = KeyCode.Mouse0;
+    public KeyCode SwitchItem = KeyCode.F;
 
-    // Update is called once per frame
-    void Update()
+    public static PlayerControls Instance { get; private set; }
+
+    void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
