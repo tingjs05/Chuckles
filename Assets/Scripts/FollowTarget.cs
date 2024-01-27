@@ -27,5 +27,22 @@ namespace Player
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime,
                 Mathf.Infinity, deltaTime: Time.deltaTime);
         }
+
+        [EasyButtons.Button]
+        public void Editor_GotoTarget()
+        {
+            if (target == null)
+            {
+                Debug.LogError("Target is null!");
+                return;
+            }
+            transform.position = target.position + offset;
+        }
+
+        private void OnValidate()
+        {
+            if (Application.isEditor && !Application.isPlaying)
+            Editor_GotoTarget();
+        }
     }
 }
