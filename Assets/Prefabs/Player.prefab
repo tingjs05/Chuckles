@@ -45,9 +45,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9490196, b: 0.7294118, a: 1}
-  m_Intensity: 50
-  m_Range: 15.73
-  m_SpotAngle: 60
+  m_Intensity: 30
+  m_Range: 29.1
+  m_SpotAngle: 42
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 1674598934951637008}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.35, z: 0}
+  m_LocalPosition: {x: 0, y: 3.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,8 +139,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9490196, b: 0.7294118, a: 1}
-  m_Intensity: 30
-  m_Range: 4
+  m_Intensity: 15
+  m_Range: 4.5
   m_SpotAngle: 60
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -510,10 +510,10 @@ MonoBehaviour:
   rotationSpeed: 20
   flashlight: {fileID: 8988328610709526798}
   lantern: {fileID: 6518751355443572799}
-  flashlightSpotAngle_flashlight: 60
-  lanternSpotAngle_flashlight: 60
+  flashlightSpotAngle_flashlight: 42
+  lanternRange_flashlight: 4.5
   flashlightSpotAngle_camera: 100
-  lanternSpotAngle_camera: 90
+  lanternRange_camera: 6
   cameraCooldown: 2
   cameraFlashColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4945307964600115789

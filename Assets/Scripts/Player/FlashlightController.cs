@@ -16,11 +16,11 @@ public class FlashlightController : MonoBehaviour
 
     [Header("Flashlight Variables")]
     [SerializeField] private float flashlightSpotAngle_flashlight = 60f;
-    [SerializeField] private float lanternSpotAngle_flashlight = 60f;
+    [SerializeField] private float lanternRange_flashlight = 60f;
 
     [Header("Camera Variables")]
     [SerializeField] private float flashlightSpotAngle_camera = 100f;
-    [SerializeField] private float lanternSpotAngle_camera = 90f;
+    [SerializeField] private float lanternRange_camera = 90f;
     [SerializeField] private float cameraCooldown = 2f;
     // camera flash color
     [SerializeField] private Color cameraFlashColor = Color.white;
@@ -102,14 +102,14 @@ public class FlashlightController : MonoBehaviour
         {
             flashlight.enabled = true;
             flashlight.spotAngle = flashlightSpotAngle_flashlight;
-            lantern.spotAngle = lanternSpotAngle_flashlight;
+            lantern.range = lanternRange_flashlight;
             flashlight.color = originalFlashlightColor;
         }
         else
         {
             flashlight.enabled = false;
             flashlight.spotAngle = flashlightSpotAngle_camera;
-            lantern.spotAngle = lanternSpotAngle_camera;
+            lantern.range = lanternRange_camera;
             flashlight.color = cameraFlashColor;
         }
     }
