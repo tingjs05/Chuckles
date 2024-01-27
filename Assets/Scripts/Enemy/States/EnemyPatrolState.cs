@@ -11,6 +11,7 @@ namespace Enemy
         Vector3 point;
         Collider[] players;
         Collider player;
+        int actionIndex;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
@@ -24,6 +25,7 @@ namespace Enemy
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
+            // check if player is nearby
             // check if player is within chase range
             players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
 
@@ -51,6 +53,25 @@ namespace Enemy
                 enemy.SwitchState(enemy.Alert);
             }
 
+            // if no player, try to perform action
+            // check for action location
+            actionIndex = enemy.CheckActionLocation();
+
+            if (actionIndex != -1)
+            {
+                enemy.Agent.SetDestination(enemy.EnemyActions[actionIndex].actionLocation);
+
+                // check if player is at action location
+                if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
+                {
+                    enemy.GoToActionLocation(actionIndex);
+                    enemy.SwitchState(enemy.EnemyActions[actionIndex].state);
+                }
+
+                return;
+            }
+
+            // otherwise, just patrol the area
             // set a random location to walk towards to patrol
             if (!(enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)) return;
             

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Enemy
         EnemyStateMachine enemy;
         Collider[] players;
         Collider player;
+
+        public static event Action CapturedWhileChasing;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
@@ -48,6 +51,9 @@ namespace Enemy
 
         void PictureTaken(float pictureQuality)
         {
+            // invoke event when picture is taken while chasing player
+            CapturedWhileChasing?.Invoke();
+
             // ensure enemy and player are not null
             if (enemy == null || player == null) return;
 

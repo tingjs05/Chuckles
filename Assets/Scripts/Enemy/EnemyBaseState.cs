@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public abstract class EnemyBaseState
+    public abstract class EnemyBaseState : MonoBehaviour
     {
         public abstract void OnEnter(EnemyStateMachine enemy);
 

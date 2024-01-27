@@ -12,6 +12,6 @@ namespace Enemy
         public Vector3 actionLocation;
         public Vector3 locationCenter;
         public float locationRange;
-        EnemyBaseState state;
+        public EnemyBaseState state;
     }
 }
