@@ -24,11 +24,11 @@ namespace Dictation
         };
         
 
+        public bool autoStart = false;
         public event Action OnLaugh;
         public ConfidenceLevel confidence = ConfidenceLevel.Low;
         private KeywordRecognizer recognizer;
         private DictationRecognizer m_DictationRecognizer;
-        
         private string[] GetCapitalVariations(string word)
         {
             int totalVariations = 1 << word.Length;
@@ -81,8 +81,11 @@ namespace Dictation
             }
             return keywordVariations.ToArray();
         }
-        
-        private void CreateListener()
+
+        /// <summary>
+        /// Call this to start the listener
+        /// </summary>
+        public void StartListener()
         {
             DestroyListener();
             Debug.Log("Creating listener with keywords: " + string.Join(", ", GetKeywordVariations()));
@@ -90,7 +93,11 @@ namespace Dictation
             recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
             recognizer.Start();
         }
-        private void DestroyListener()
+
+        /// <summary>
+        /// Stops the listener
+        /// </summary>
+        public void DestroyListener()
         {
             if (recognizer != null && recognizer.IsRunning)
             {
@@ -102,11 +109,18 @@ namespace Dictation
         
         private void Start()
         {
-            CreateListener();
+            StartListener();
         }
+        
+        public void ForceLaugh()
+        {
+            if (gameObject.activeSelf) OnLaugh?.Invoke();
+        }
+        
         private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
         {
             Debug.Log($"Phrase {args.text} recognized with confidence: {args.confidence}");
+            if (gameObject.activeSelf) OnLaugh?.Invoke();
         }
 
         private void OnDestroy()
