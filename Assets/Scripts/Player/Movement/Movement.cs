@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
     void moveCharacter(Vector3 direction)
     {
-        rb.velocity = (direction.normalized * speed) + rb.velocity.y * Vector3.up;
+        rb.velocity = (direction.normalized * speed) + Mathf.Min(rb.velocity.y,0.4f) * Vector3.up;
     }
 
 }
