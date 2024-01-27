@@ -21,8 +21,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         IsMoving = !(movement == Vector3.zero);
+        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
 
 
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
 
     void moveCharacter(Vector3 direction)
     {
-        rb.velocity = (direction.normalized * speed) + Physics.gravity;
+        rb.velocity = (direction.normalized * speed) + rb.velocity.y * Vector3.up;
     }
 
 }

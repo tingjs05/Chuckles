@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8459143769004361392, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -592,9 +596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a2188760a5454b9f3fcc633bcd51fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.5
+  smoothTime: 0.1
   target: {fileID: 177288207}
-  offset: {x: 0, y: 5, z: -5}
+  offset: {x: 0, y: 10, z: -5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
