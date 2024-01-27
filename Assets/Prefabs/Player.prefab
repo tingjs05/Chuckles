@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4783268396518110024}
   m_Father: {fileID: 3102252996487964230}
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!108 &8988328610709526798
@@ -188,6 +189,97 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &4715578333328661974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4783268396518110024}
+  - component: {fileID: 5666890872713201878}
+  - component: {fileID: 5388408328564647589}
+  - component: {fileID: 5392542135568171693}
+  m_Layer: 0
+  m_Name: Camera Capture Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4783268396518110024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715578333328661974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 498645860527875859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5666890872713201878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715578333328661974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 12}
+--- !u!136 &5388408328564647589
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715578333328661974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Height: 15
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 8}
+--- !u!114 &5392542135568171693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715578333328661974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d731f79bb529a4ba39ed8cfacdfdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureCooldown: 0.1
 --- !u!1 &6330078665716722191
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +392,7 @@ GameObject:
   - component: {fileID: 8517991609636747351}
   - component: {fileID: 8459143769004361392}
   - component: {fileID: 2772820404526233775}
+  - component: {fileID: 4945307964600115789}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -423,3 +516,24 @@ MonoBehaviour:
   lanternSpotAngle_camera: 90
   cameraCooldown: 2
   cameraFlashColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &4945307964600115789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229870306092936856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1f62cedb1be19428c70a6fbb5f11c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureDuration: 0.5
+  captureDelay: 0.05
+  captureArea: {fileID: 5392542135568171693}
+  basePictureQuality: 100
+  movingPenalty: 65
+  distancePenalty: 25
+  centralisedPenalty: 10
+  maxDistance: 25
+  centralisedThreshold: 0.9
