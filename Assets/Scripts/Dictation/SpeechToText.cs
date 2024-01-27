@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Windows.Speech;
 
 namespace Dictation
@@ -8,7 +9,6 @@ namespace Dictation
         public string[] keywords = new string[] {"ha"};
         public ConfidenceLevel confidence = ConfidenceLevel.Medium;
         private KeywordRecognizer recognizer;
-
         private void Start()
         {
             recognizer = new KeywordRecognizer(keywords, confidence);
