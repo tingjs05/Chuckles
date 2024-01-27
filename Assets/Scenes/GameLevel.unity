@@ -1852,26 +1852,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1759861310090631961, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1759861310090631961, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1759861310090631961, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1759861310090631961, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1759861310090631961, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 75f58f45d1c7bdf4ab08098d271fc49e, type: 2}
     - target: {fileID: 3102252996487964230, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.69
@@ -1911,14 +1891,6 @@ PrefabInstance:
     - target: {fileID: 3102252996487964230, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Height
-      value: 1.1084449
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Center.y
-      value: -0.30669677
       objectReference: {fileID: 0}
     - target: {fileID: 4532246185716303830, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: cameraTransform
@@ -4452,18 +4424,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3768860197567538852, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
-      propertyPath: m_CastShadows
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3768860197567538852, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3768860197567538852, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2d2a9fcb23a0d294abd51b9af8b170e2, type: 2}
     - target: {fileID: 4705908078905761124, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.1
