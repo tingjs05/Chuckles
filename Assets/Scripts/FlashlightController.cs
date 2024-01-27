@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlashlightController : MonoBehaviour
 {
@@ -8,8 +10,23 @@ public class FlashlightController : MonoBehaviour
     // Adjust this speed value to control the rotation speed of the spotlight
     public float rotationSpeed = 5f;
 
+    // References to the lights
+    private Light flashlight;
+    private Light lantern;
+
+    private bool isHoldingFlashlight = true;
+
+    private void Start()
+    {
+        flashlight = GameObject.Find("Flashlight").GetComponent<Light>();
+        lantern = GameObject.Find("Lantern").GetComponent<Light>();
+    }
+
     void Update()
     {
+        // Handling Inputs 
+        HandleInputs();
+
         // Get the mouse position in screen coordinates
         Vector3 mousePosition = Input.mousePosition;
 
@@ -35,5 +52,57 @@ public class FlashlightController : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(lookDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    void HandleInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isHoldingFlashlight = !isHoldingFlashlight;
+            SwapItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (flashlight.enabled && isHoldingFlashlight)
+            {
+                flashlight.enabled = false;
+            }
+            else if (isHoldingFlashlight)
+            {
+                flashlight.enabled = true;
+            }
+            else
+            {
+                StartCoroutine(CameraFlash());
+            }
+        }
+    }
+
+    void SwapItem()
+    {
+        if (isHoldingFlashlight)
+        {
+            flashlight.enabled = true;
+            lantern.spotAngle = 60f;
+        }
+        else
+        {
+            flashlight.enabled = false;
+            flashlight.spotAngle = 100f;
+            lantern.spotAngle = 90f;
+        }
+    }
+
+    IEnumerator CameraFlash()
+    {
+        flashlight.enabled = true;
+        yield return new WaitForSeconds(0.4f);
+        flashlight.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        flashlight.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        flashlight.enabled = false;
+        //Add take picture function calling?
     }
 }
