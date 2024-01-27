@@ -25,6 +25,10 @@ public class FlashlightController : MonoBehaviour
     [SerializeField] private float cameraCooldown = 2f;
     // camera flash color
     [SerializeField] private Color cameraFlashColor = Color.white;
+    
+    [Header("Audio")]
+    public AudioFx cameraFlashSoundFx;
+    public AudioFx flashlightClickSoundFx;
 
     // private variables
     private Color originalFlashlightColor;
@@ -32,9 +36,7 @@ public class FlashlightController : MonoBehaviour
 
     // public properties
     public bool IsHoldingFlashlight { get; private set; } = true;
-    
-    public AudioFx cameraFlashSoundFx;
-    public AudioFx flashlightClickSoundFx;
+    public bool FlashlightOn { get; private set; } = true;
 
     // public events
     public event Action TakePicture;
@@ -65,6 +67,7 @@ public class FlashlightController : MonoBehaviour
             {
                 flashlightClickSoundFx.Play(this);
                 flashlight.enabled = !flashlight.enabled;
+                FlashlightOn = flashlight.enabled;
             }
             else if (cameraFlash == null)
             {
@@ -118,6 +121,7 @@ public class FlashlightController : MonoBehaviour
             lantern.range = lanternRange_camera;
             flashlight.color = cameraFlashColor;
         }
+        FlashlightOn = flashlight.enabled;
     }
 
     IEnumerator CameraFlash()
