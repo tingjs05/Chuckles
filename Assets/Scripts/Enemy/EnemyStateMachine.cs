@@ -14,12 +14,13 @@ namespace Enemy
         public float sprintSpeed = 25f;
 
         [Header("Range Checks")]
-        public float patrolRange = 25f;
+        public float detectionRange = 25f;
         public float alertRange = 15f;
         public float chaseRange = 10f;
 
-        [Header("Player Information")]
+        [Header("Layer Masks")]
         public LayerMask playerMask;
+        public LayerMask obstacleMask;
 
         // current state of enemy
         public EnemyBaseState State { get; private set; }
@@ -40,6 +41,9 @@ namespace Enemy
             // get components
             Agent = GetComponent<NavMeshAgent>();
 
+            // disable rotation for navmesh agent
+            Agent.updateRotation = false;
+
             // set default state
             State = Patrol;
             State.OnEnter(this);
@@ -52,11 +56,11 @@ namespace Enemy
 
         void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireSphere(transform.position, patrolRange);
+            Gizmos.DrawWireSphere(transform.position, detectionRange);
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, alertRange);
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, detectionRange);
+            Gizmos.DrawWireSphere(transform.position, chaseRange);
         }
 
         public void SwitchState(EnemyBaseState state)

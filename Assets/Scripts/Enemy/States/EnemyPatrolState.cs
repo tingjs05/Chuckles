@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Enemy
@@ -8,10 +9,11 @@ namespace Enemy
     {
         EnemyStateMachine enemy;
         Vector3 point;
+        Collider[] players;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
-            // cache enemy
+            // cache enemy so that event listener can use
             this.enemy = enemy;
             // set speed to walk speed
             enemy.Agent.speed = enemy.walkSpeed;
@@ -22,17 +24,36 @@ namespace Enemy
         public override void OnUpdate(EnemyStateMachine enemy)
         {
             // check if player is within chase range
-            Collider player = Physics.OverlapSphere(enemy.transform.position, enemy.chaseRange, enemy.playerMask);
-            if (player != null)
+            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
+
+            if (players.Length > 0)
             {
-                enemy.SwitchState(enemy.Chase);
-                return;
+                Collider player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
+
+                // if player is within chase range, start chasing player
+                if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
+                {
+                    enemy.SwitchState(enemy.Chase);
+                    return;
+                }
+
+                // otherwise, check if player is within line of sight.
+                // if player is within line of sight, start chasing player
+                RaycastHit hit;
+                if (!Physics.Raycast(enemy.transform.position, (player.transform.position - enemy.transform.position).normalized, out hit, Mathf.Infinity, enemy.obstacleMask))
+                {
+                    enemy.SwitchState(enemy.Chase);
+                    return;
+                }
+
+                // if cannot see and not within chase range, switch to alerted state
+                // enemy.SwitchState(enemy.Alert);
             }
 
             // set a random location to walk towards to patrol
             if (!(enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)) return;
             
-            if (!RandomPoint(enemy.transform.position, enemy.patrolRange, out point)) return;
+            if (!RandomPoint(enemy.transform.position, enemy.detectionRange, out point)) return;
 
             Debug.DrawRay(point, Vector3.up, Color.blue, 1f);
             enemy.Agent.SetDestination(point);
@@ -60,9 +81,10 @@ namespace Enemy
 
         void PictureTaken(float pictureQuality)
         {
+            // chase player if player takes a photo within the detection range of the enemy
             if (enemy == null) return;
-            Collider player = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
-            if (player != null) enemy.SwitchState(enemy.Chase);
+            Collider[] playersInRange = Physics.OverlapSphere(enemy.transform.position, enemy.detectionRange, enemy.playerMask);
+            if (playersInRange.Length > 0) enemy.SwitchState(enemy.Chase);
         }
     }
 }
