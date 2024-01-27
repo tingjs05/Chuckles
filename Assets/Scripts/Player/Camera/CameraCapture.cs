@@ -16,12 +16,18 @@ public class CameraCapture : MonoBehaviour
     [SerializeField] private float distancePenalty = 25f;
     [SerializeField] private float centralisedPenalty = 10f;
     
+    // components
     private FlashlightController flashlight;
     private Movement movement;
     private Collider[] captureAreaColliders;
+
+    // private variables for calculating stuff
     private float pictureQuality;
     private bool movingWhenPictureTaken;
+    private Vector3 centreLine;
+    private Vector3 directionOfEnemy;
 
+    // public events
     public static event Action<float> TakenPictureOfEnemy;
 
     // Start is called before the first frame update
@@ -74,19 +80,36 @@ public class CameraCapture : MonoBehaviour
         movingWhenPictureTaken = false;
     }
 
-    void CapturedEnemy()
+    void CapturedEnemy(Transform enemy)
     {
-        Debug.Log("Captured Clown!");
-
         pictureQuality = basePictureQuality;
 
         // deduct picture quality if character is moving when player is taking the photo
         if (movingWhenPictureTaken) pictureQuality -= movingPenalty;
+
+        // deduct picture quality based on how centralised or how far the enemy is
+        pictureQuality -= centralisedPenalty * CalculateCentralisedPenaltyScale(enemy);
 
         // ensure picture quality does not drop below 0
         pictureQuality = pictureQuality < 0f? 0f : pictureQuality;
 
         // invoke event and pass in picture quality
         TakenPictureOfEnemy?.Invoke(pictureQuality);
+        Debug.Log("Captured Clown! Picture Quality: " + pictureQuality);
+    }
+
+    float CalculateCentralisedPenaltyScale(Transform enemy)
+    {
+        // get direction player is poiting, and ignore y-axis
+        Debug.DrawRay(captureArea.transform.position, captureArea.transform.forward * 10f, Color.red);
+        centreLine = captureArea.transform.forward;
+        centreLine.y = 0f;
+
+        // compare with direction of enemy from player, and ignore y-axis
+        directionOfEnemy = (enemy.position - transform.position).normalized;
+        directionOfEnemy.y = 0f;
+
+        // calculate dot product of direction and centre
+        return 1f - (Vector3.Dot(directionOfEnemy, centreLine) / Vector3.Dot(centreLine, centreLine)) * centreLine.magnitude;
     }
 }
