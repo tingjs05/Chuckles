@@ -56,6 +56,11 @@ public class CameraCapture : MonoBehaviour
         else Debug.LogWarning("CameraCaptureArea is not set! Camera capture function would not work!");
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, maxDistance);
+    }
+
     void SetCaptureAreaCollider(bool enabled)
     {
         foreach (Collider collider in captureAreaColliders)
