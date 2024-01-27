@@ -11,8 +11,11 @@ namespace Enemy
         public override void OnEnter(EnemyStateMachine enemy)
         {
             currentDuration = 0f;
+            
             enemy.Agent.SetDestination(enemy.transform.position);
-            enemy.Agent.updatePosition = false;
+            // This will cause the agent position and transform position to be out of sync, hence agent will teleport when this state ends
+            // Setting the destination to the current position is already enough to stop the agent from moving
+            // enemy.Agent.updatePosition = false; 
         }
 
         public override void OnUpdate(EnemyStateMachine enemy)
@@ -28,7 +31,7 @@ namespace Enemy
 
         public override void OnExit(EnemyStateMachine enemy)
         {
-            enemy.Agent.updatePosition = true;
+            // enemy.Agent.updatePosition = true;
         }
     }
 }
