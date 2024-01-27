@@ -16,7 +16,7 @@ namespace Enemy
         [Header("Range Checks")]
         public float patrolRange = 25f;
         public float alertRange = 15f;
-        public float detectionRange = 10f;
+        public float chaseRange = 10f;
 
         [Header("Player Information")]
         public LayerMask playerMask;
