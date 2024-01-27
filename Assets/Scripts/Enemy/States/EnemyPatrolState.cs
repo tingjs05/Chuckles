@@ -23,32 +23,32 @@ namespace Enemy
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
-            // // check if player is within chase range
-            // players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
+            // check if player is within chase range
+            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
 
-            // if (players.Length > 0)
-            // {
-            //     Collider player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
+            if (players.Length > 0)
+            {
+                Collider player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
 
-            //     // if player is within chase range, start chasing player
-            //     if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
-            //     {
-            //         enemy.SwitchState(enemy.Chase);
-            //         return;
-            //     }
+                // if player is within chase range, start chasing player
+                if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
+                {
+                    enemy.SwitchState(enemy.Chase);
+                    return;
+                }
 
-            //     // otherwise, check if player is within line of sight.
-            //     // if player is within line of sight, start chasing player
-            //     RaycastHit hit;
-            //     if (!Physics.Raycast(enemy.transform.position, (player.transform.position - enemy.transform.position).normalized, out hit, Mathf.Infinity, enemy.obstacleMask))
-            //     {
-            //         enemy.SwitchState(enemy.Chase);
-            //         return;
-            //     }
+                // otherwise, check if player is within line of sight.
+                // if player is within line of sight, start chasing player
+                RaycastHit hit;
+                if (!Physics.Raycast(enemy.transform.position, (player.transform.position - enemy.transform.position).normalized, out hit, Mathf.Infinity, enemy.obstacleMask))
+                {
+                    enemy.SwitchState(enemy.Chase);
+                    return;
+                }
 
-            //     // if cannot see and not within chase range, switch to alerted state
-            //     // enemy.SwitchState(enemy.Alert);
-            // }
+                // if cannot see and not within chase range, switch to alerted state
+                // enemy.SwitchState(enemy.Alert);
+            }
 
             // set a random location to walk towards to patrol
             if (!(enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)) return;
