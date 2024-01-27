@@ -341,14 +341,6 @@ PrefabInstance:
       value: 3.35
       objectReference: {fileID: 0}
     - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Range
-      value: 15.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Intensity
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 1
       objectReference: {fileID: 0}
