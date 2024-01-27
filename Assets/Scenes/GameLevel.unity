@@ -123,6 +123,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65215043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4889271328348090523, guid: 24bac6bd5c935524fa025cc9e796ceba, type: 3}
+  m_PrefabInstance: {fileID: 1641576382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &65215047
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65215043}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 674340280032488212, guid: 24bac6bd5c935524fa025cc9e796ceba, type: 3}
 --- !u!1 &109892178
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +550,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4889271328348090523, guid: 24bac6bd5c935524fa025cc9e796ceba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 65215047}
     - targetCorrespondingSourceObject: {fileID: -4007543208646099642, guid: 24bac6bd5c935524fa025cc9e796ceba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1640464764}
@@ -563,8 +593,8 @@ Camera:
   m_GameObject: {fileID: 2077141214}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
