@@ -157,7 +157,7 @@ Material:
     - _Albedo2Flow: 0.3
     - _Albedo2Tiling: 0.9
     - _AlbedoContrast: 0.9
-    - _AlbedoIntensity: 1.3
+    - _AlbedoIntensity: 1
     - _Brightness: 1
     - _BumpScale: 1
     - _Contrast: 1
@@ -243,7 +243,7 @@ Material:
     - _ReverseFlow: -5
     - _Saturation: 1
     - _SaturationRef: 0.5
-    - _Shininess: 1
+    - _Shininess: 0.7
     - _SmoothnessTextureChannel: 0
     - _SoftFactor: 0.8
     - _SpecularHighlights: 1
