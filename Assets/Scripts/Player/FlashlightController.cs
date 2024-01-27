@@ -34,6 +34,7 @@ public class FlashlightController : MonoBehaviour
     public bool IsHoldingFlashlight { get; private set; } = true;
     
     public AudioFx cameraFlashSoundFx;
+    public AudioFx flashlightClickSoundFx;
 
     // public events
     public event Action TakePicture;
@@ -53,6 +54,7 @@ public class FlashlightController : MonoBehaviour
     {
         if (Input.GetKeyDown(PlayerControls.Instance.SwitchItem))
         {
+            flashlightClickSoundFx.Play(this);
             IsHoldingFlashlight = !IsHoldingFlashlight;
             SwapItem();
         }
