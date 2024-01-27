@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 10.0f;
+
     private Rigidbody rb;
     private Vector3 movement;
 
+    public bool IsMoving { get; private set; } = false;
 
     // Use this for initialization
     void Start()
@@ -19,6 +22,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        IsMoving = !(movement == Vector3.zero);
     }
 
 
