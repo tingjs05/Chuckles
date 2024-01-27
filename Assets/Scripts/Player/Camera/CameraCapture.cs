@@ -8,7 +8,7 @@ public class CameraCapture : MonoBehaviour
     [Header("Capturing Variables")]
     [SerializeField] private float captureDuration = 0.5f;
     [SerializeField] private float captureDelay = 0.05f;
-    [SerializeField] private Collider captureArea;
+    [SerializeField] private CameraCaptureArea captureArea;
 
     [Header("Capture Quality")]
     [SerializeField] private float basePictureQuality = 100f;
@@ -16,7 +16,7 @@ public class CameraCapture : MonoBehaviour
     
     private FlashlightController flashlight;
     private Movement movement;
-    private CameraCaptureArea cameraCaptureArea;
+    private Collider[] captureAreaColliders;
     private float pictureQuality;
     private bool movingWhenPictureTaken;
 
@@ -28,21 +28,29 @@ public class CameraCapture : MonoBehaviour
         // get components
         flashlight = GetComponent<FlashlightController>();
         movement = GetComponent<Movement>();
-        cameraCaptureArea = captureArea.GetComponent<CameraCaptureArea>();
+        captureAreaColliders = captureArea.GetComponents<Collider>();
 
         // set whatever this variable is
         movingWhenPictureTaken = false;
 
         // disable capture area
-        captureArea.enabled = false;
+        SetCaptureAreaCollider(false);
 
         // subscribe to event when pictures are taken
         if (flashlight != null) flashlight.TakePicture += Capture;
         else Debug.LogWarning("FlashlightController not found! Camera capture function would not work!");
         
         // subscribe to camera capture event
-        if (cameraCaptureArea != null) cameraCaptureArea.CapturedEnemy += CapturedEnemy;
+        if (captureArea != null) captureArea.CapturedEnemy += CapturedEnemy;
         else Debug.LogWarning("CameraCaptureArea is not set! Camera capture function would not work!");
+    }
+
+    void SetCaptureAreaCollider(bool enabled)
+    {
+        foreach (Collider collider in captureAreaColliders)
+        {
+            collider.enabled = enabled;
+        }
     }
 
     void Capture()
@@ -56,9 +64,9 @@ public class CameraCapture : MonoBehaviour
         if (movement != null && movement.IsMoving) movingWhenPictureTaken = true;
 
         yield return new WaitForSeconds(captureDelay);
-        captureArea.enabled = true;
+        SetCaptureAreaCollider(true);
         yield return new WaitForSeconds(captureDuration);
-        captureArea.enabled = false;
+        SetCaptureAreaCollider(false);
 
         // reset the moving check thingy
         movingWhenPictureTaken = false;
