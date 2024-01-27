@@ -18,6 +18,7 @@ public class CameraCapture : MonoBehaviour
 
     [Header("Capture Quality Scale")]
     [SerializeField] private float maxDistance = 25f;
+    [SerializeField, Range(0f, 1f)] private float distanceThreshold = 0.5f;
     [SerializeField, Range(0f, 1f)] private float centralisedThreshold = 0.9f;
     
     // components
@@ -26,7 +27,7 @@ public class CameraCapture : MonoBehaviour
     private Collider[] captureAreaColliders;
 
     // private variables for calculating stuff
-    private float pictureQuality, proj;
+    private float pictureQuality, proj, distScale;
     private bool movingWhenPictureTaken;
     private Vector3 centreLine, directionOfEnemy;
 
@@ -58,6 +59,8 @@ public class CameraCapture : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        Gizmos.DrawWireSphere(transform.position, maxDistance * distanceThreshold);
+        Gizmos.color = Color.grey;
         Gizmos.DrawWireSphere(transform.position, maxDistance);
     }
 
@@ -109,7 +112,9 @@ public class CameraCapture : MonoBehaviour
 
     float CalculateDistancePenaltyScale(Transform enemy)
     {
-        return Mathf.Clamp01(Vector3.Distance(transform.position, enemy.position) / maxDistance);
+        distScale = Mathf.Clamp01(Vector3.Distance(transform.position, enemy.position) / maxDistance);
+        distScale = distScale <= distanceThreshold? 0f : distScale;
+        return distScale;
     }
 
     float CalculateCentralisedPenaltyScale(Transform enemy)
