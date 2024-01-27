@@ -25,7 +25,7 @@ public class TimeController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
+            // wtv goes here
         }
 
     }
