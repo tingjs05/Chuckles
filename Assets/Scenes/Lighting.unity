@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a05a55172fa07e439e7b79b849f4401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 20
   flashlight: {fileID: 723180185}
   lantern: {fileID: 1575237091}
   flashlightSpotAngle_flashlight: 60
