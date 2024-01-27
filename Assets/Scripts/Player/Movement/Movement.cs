@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
 
     public bool IsMoving { get; private set; } = false;
 
+    public AudioSource footsteps;
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +23,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool steps = (IsMoving) ? footsteps.enabled = true : footsteps.enabled = false;
         IsMoving = !(movement == Vector3.zero);
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
