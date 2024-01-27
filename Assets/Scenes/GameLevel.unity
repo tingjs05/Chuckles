@@ -318,11 +318,11 @@ PrefabInstance:
       objectReference: {fileID: 2077141217}
     - target: {fileID: 6518751355443572799, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_Range
-      value: 6.060774
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6518751355443572799, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_Intensity
-      value: 6
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6518751355443572799, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -339,6 +339,10 @@ PrefabInstance:
     - target: {fileID: 8684123444511574132, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_Intensity
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8988328610709526798, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_InnerSpotAngle

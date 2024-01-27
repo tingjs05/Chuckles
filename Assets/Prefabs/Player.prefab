@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 4783268396518110024}
   m_Father: {fileID: 3102252996487964230}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.883, y: 0, z: 0}
 --- !u!108 &8988328610709526798
 Light:
   m_ObjectHideFlags: 0
@@ -45,10 +45,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.9490196, b: 0.7294118, a: 1}
-  m_Intensity: 22
+  m_Intensity: 50
   m_Range: 15.73
   m_SpotAngle: 60
-  m_InnerSpotAngle: 6
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 1674598934951637008}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.873, z: 0}
+  m_LocalPosition: {x: 0, y: 3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,8 +139,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9490196, b: 0.7294118, a: 1}
-  m_Intensity: 14.96
-  m_Range: 4.6112328
+  m_Intensity: 30
+  m_Range: 4
   m_SpotAngle: 60
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -151,7 +151,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
