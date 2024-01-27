@@ -15,6 +15,10 @@ public class CameraCapture : MonoBehaviour
     [SerializeField] private float movingPenalty = 65f;
     [SerializeField] private float distancePenalty = 25f;
     [SerializeField] private float centralisedPenalty = 10f;
+
+    [Header("Capture Quality Scale")]
+    [SerializeField] private float maxDistance = 25f;
+    [SerializeField, Range(0f, 1f)] private float centralisedThreshold = 0.9f;
     
     // components
     private FlashlightController flashlight;
@@ -22,10 +26,9 @@ public class CameraCapture : MonoBehaviour
     private Collider[] captureAreaColliders;
 
     // private variables for calculating stuff
-    private float pictureQuality;
+    private float pictureQuality, proj;
     private bool movingWhenPictureTaken;
-    private Vector3 centreLine;
-    private Vector3 directionOfEnemy;
+    private Vector3 centreLine, directionOfEnemy;
 
     // public events
     public static event Action<float> TakenPictureOfEnemy;
@@ -88,6 +91,7 @@ public class CameraCapture : MonoBehaviour
         if (movingWhenPictureTaken) pictureQuality -= movingPenalty;
 
         // deduct picture quality based on how centralised or how far the enemy is
+        pictureQuality -= distancePenalty * CalculateDistancePenaltyScale(enemy);
         pictureQuality -= centralisedPenalty * CalculateCentralisedPenaltyScale(enemy);
 
         // ensure picture quality does not drop below 0
@@ -98,10 +102,15 @@ public class CameraCapture : MonoBehaviour
         Debug.Log("Captured Clown! Picture Quality: " + pictureQuality);
     }
 
+    float CalculateDistancePenaltyScale(Transform enemy)
+    {
+        return Mathf.Clamp01(Vector3.Distance(transform.position, enemy.position) / maxDistance);
+    }
+
     float CalculateCentralisedPenaltyScale(Transform enemy)
     {
         // get direction player is poiting, and ignore y-axis
-        Debug.DrawRay(captureArea.transform.position, captureArea.transform.forward * 10f, Color.red);
+        // Debug.DrawRay(captureArea.transform.position, captureArea.transform.forward * 10f, Color.red);
         centreLine = captureArea.transform.forward;
         centreLine.y = 0f;
 
@@ -109,7 +118,11 @@ public class CameraCapture : MonoBehaviour
         directionOfEnemy = (enemy.position - transform.position).normalized;
         directionOfEnemy.y = 0f;
 
+        // get projection of two vectors
+        proj = (Vector3.Dot(directionOfEnemy, centreLine) / Vector3.Dot(centreLine, centreLine)) * centreLine.magnitude;
+        proj = proj >= centralisedThreshold? 1f : proj;
+
         // calculate dot product of direction and centre
-        return 1f - (Vector3.Dot(directionOfEnemy, centreLine) / Vector3.Dot(centreLine, centreLine)) * centreLine.magnitude;
+        return 1f - proj;
     }
 }
