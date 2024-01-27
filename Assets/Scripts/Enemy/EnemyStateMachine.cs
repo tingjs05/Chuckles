@@ -28,6 +28,10 @@ namespace Enemy
         public LayerMask playerMask;
         public LayerMask obstacleMask;
 
+        [Header("Toggle Gizmos")]
+        public bool showDetectionRanges = false;
+        public bool showActionLocations = true;
+
         // current state of enemy
         public EnemyBaseState State { get; private set; }
 
@@ -38,7 +42,8 @@ namespace Enemy
         public EnemyStunState Stun { get; private set; } = new EnemyStunState();
 
         // action states
-        [field: SerializeField] public EnemyBaseState[] EnemyActionStates { get; private set; }
+        [field: Header("Actions")]
+        [field: SerializeField] public EnemyAction[] EnemyActions { get; private set; }
 
         // components
         public NavMeshAgent Agent { get; private set; }
@@ -63,11 +68,27 @@ namespace Enemy
 
         void OnDrawGizmosSelected()
         {
+            if (!showDetectionRanges) return;
+
             Gizmos.DrawWireSphere(transform.position, patrolRange);
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, alertRange);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, chaseRange);
+        }
+
+        void OnDrawGizmos()
+        {
+            if (!showActionLocations) return;
+
+            // show enemy action locations
+            foreach (EnemyAction action in EnemyActions)
+            {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(action.locationCenter, action.locationRange);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(action.actionLocation, 0.5f);
+            }
         }
 
         public void SwitchState(EnemyBaseState state)
