@@ -20,14 +20,21 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Clown Tracking")]
+    public float pointerThreshold = 27.5f;
     public RectTransform pointerTransform;
     public Transform player;
     public Transform clownTransform;
-    public float distToClown;
+    public GameObject trackingArrow;
+    public GameObject trackingHint;
+    public float hintTimer = 7.5f;
+
+    private float distToClown;
+
+
 
     [Header("Objectives")]
     public TextMeshProUGUI objectiveHint;
-    public float completionPercentage;
+    [Range(0f, 1f)] public float completionPercentage;
     
     private FlashlightController flashlightController;
 
@@ -38,9 +45,12 @@ public class UIManager : MonoBehaviour
     {
         mainUI.SetActive(true);
         pauseJournal.SetActive(false);
+
+        trackingArrow.SetActive(false);
+        trackingHint.SetActive(false); 
+
         flashlightController = player.GetComponent<FlashlightController>();
-
-
+        
     }
 
     // Update is called once per frame
@@ -48,8 +58,13 @@ public class UIManager : MonoBehaviour
     {
         JournalEntries();
         InventorySlots();
-        ClownTracking();
         PauseGame();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ClownTracking();
+        }
+
     }
 
     void InventorySlots()
@@ -61,7 +76,6 @@ public class UIManager : MonoBehaviour
 
         if (flashlightController.IsHoldingFlashlight)
         {
-            Debug.Log("Equipped flashlight");
             camColour.a = 0.45f;
             cameraSlot.color = camColour; 
             flashColour.a = 1f;
@@ -69,7 +83,6 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Equipped camera");
             camColour.a = 1f;
             cameraSlot.color = camColour;
             flashColour.a = 0.45f;
@@ -135,17 +148,59 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void ClownTracking()
+    public void ClownTracking()
     {
         Vector3 clownPos = clownTransform.position;
         Vector3 startPos = player.position;
 
         Vector3 dirToClown = (clownPos - startPos).normalized;
-        float angle = Mathf.Atan2(dirToClown.z, dirToClown.x) * Mathf.Rad2Deg;
-        if (angle < 0) angle += 360;
+        distToClown = (clownPos - startPos).magnitude;
 
-        pointerTransform.localEulerAngles = new Vector3(0, 0, angle);
+        Debug.Log(distToClown);
+
+        if (distToClown <= pointerThreshold)
+        {
+            Debug.Log("Clown is near");
+            trackingHint.SetActive(true);
+            trackingHint.GetComponent<TextMeshProUGUI>().text = "It's near.";
+
+            StartCoroutine(DisableCloseHint());
+
+        }
+        else
+        {
+            Debug.Log("Clown is far");
+
+            trackingArrow.SetActive(true);
+            trackingHint.SetActive(true);
+
+            trackingHint.GetComponent<TextMeshProUGUI>().text = "A noise from there.";
+
+            float angle = Mathf.Atan2(dirToClown.z, dirToClown.x) * Mathf.Rad2Deg;
+            if (angle < 0) angle += 360;
+
+            pointerTransform.localEulerAngles = new Vector3(0, 0, angle);
+
+            StartCoroutine(DisableFarHint());
+
+        }
 
     }
+
+    IEnumerator DisableCloseHint()
+    {
+        yield return new WaitForSeconds(hintTimer);
+
+        trackingHint.SetActive(false);
+    }
+
+    IEnumerator DisableFarHint()
+    {
+        yield return new WaitForSeconds(hintTimer);
+
+        trackingArrow.SetActive(false);
+        trackingHint.SetActive(false);
+    }
+
 
 }

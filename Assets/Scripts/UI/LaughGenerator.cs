@@ -9,6 +9,8 @@ public class LaughGenerator : MonoBehaviour
     [Header("ParticleSystems")]
     public ParticleSystem giggle;
     public ParticleSystem laugh;
+    public ParticleSystem charge;
+    public ParticleSystem stunned;
 
 
     // Start is called before the first frame update
@@ -36,14 +38,25 @@ public class LaughGenerator : MonoBehaviour
 
     public void OnGiggle()
     {
+        //
         giggle.Play();
     }
 
     public void OnLaugh()
     {
+        //
         laugh.Play();
     }
 
+    public void OnCharge()
+    {
+        charge.Play();
+    }
+
+    public void OnStunned()
+    {
+        stunned.Play();
+    }
 
 }
 
