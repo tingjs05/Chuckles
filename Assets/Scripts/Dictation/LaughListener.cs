@@ -62,12 +62,12 @@ namespace Dictation
                 for (int i = 0; i < 3; i++)
                 {
                     keywordVariations.Add(keyword);
-                    for (int j = 0; j < i; j++) keywordVariations[j] += keyword;
+                    for (int j = 0; j < i; j++) keywordVariations[keywordVariations.Count-1] += keyword;
                 }
                 for (int i = 0; i < 3; i++)
                 {
                     keywordVariations.Add(keyword);
-                    for (int j = 0; j < i; j++) keywordVariations[j] += " " + keyword;
+                    for (int j = 0; j < i; j++) keywordVariations[keywordVariations.Count-1] += " " + keyword;
                 }
                 
             }

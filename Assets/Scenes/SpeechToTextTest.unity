@@ -169,20 +169,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primary_keywords:
   - ha
-  - Ha
-  - HA
-  - hA
   - he
-  - hE
-  - HE
-  - He
   - ho
-  - hO
-  - HO
-  - Ho
   - hah
-  - hAh
   - har
+  - huh
+  - ah
+  - her
+  - heh
   confidence: 2
 --- !u!1 &1882921779
 GameObject:
