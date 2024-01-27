@@ -63,6 +63,7 @@ public class FlashlightController : MonoBehaviour
         {
             if (IsHoldingFlashlight)
             {
+                flashlightClickSoundFx.Play(this);
                 flashlight.enabled = !flashlight.enabled;
             }
             else if (cameraFlash == null)
