@@ -466,7 +466,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8517991609636747351
 MonoBehaviour:
@@ -533,7 +533,7 @@ MonoBehaviour:
   captureArea: {fileID: 5392542135568171693}
   basePictureQuality: 100
   movingPenalty: 65
-  distancePenalty: 25
-  centralisedPenalty: 10
-  maxDistance: 25
-  centralisedThreshold: 0.9
+  distancePenalty: 70
+  centralisedPenalty: 50
+  maxDistance: 10
+  centralisedThreshold: 0.8
