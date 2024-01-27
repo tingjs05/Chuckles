@@ -8,6 +8,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     // states
     public EnemyIdleState Idle { get; private set; } = new EnemyIdleState();
+    public EnemyPatrolState Patrol { get; private set; } = new EnemyPatrolState();
     public EnemyAlertState Alert { get; private set; } = new EnemyAlertState();
     public EnemyChaseState Chase { get; private set; } = new EnemyChaseState();
 
