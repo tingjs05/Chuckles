@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -24,6 +25,10 @@ public class FlashlightController : MonoBehaviour
     [SerializeField] private float cameraCooldown = 2f;
     // camera flash color
     [SerializeField] private Color cameraFlashColor = Color.white;
+    
+    [Header("Audio")]
+    public AudioFx cameraFlashSoundFx;
+    public AudioFx flashlightClickSoundFx;
 
     // private variables
     private Color originalFlashlightColor;
@@ -51,6 +56,7 @@ public class FlashlightController : MonoBehaviour
     {
         if (Input.GetKeyDown(PlayerControls.Instance.SwitchItem))
         {
+            flashlightClickSoundFx.Play(this);
             IsHoldingFlashlight = !IsHoldingFlashlight;
             SwapItem();
         }
@@ -59,6 +65,7 @@ public class FlashlightController : MonoBehaviour
         {
             if (IsHoldingFlashlight)
             {
+                flashlightClickSoundFx.Play(this);
                 flashlight.enabled = !flashlight.enabled;
                 FlashlightOn = flashlight.enabled;
             }
@@ -119,6 +126,7 @@ public class FlashlightController : MonoBehaviour
 
     IEnumerator CameraFlash()
     {
+        cameraFlashSoundFx.Play(this);
         flashlight.enabled = true;
         yield return new WaitForSeconds(0.4f);
         flashlight.enabled = false;
