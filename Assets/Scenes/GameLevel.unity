@@ -1468,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2772820404526233775, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: cameraFlashSoundFx.clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3676f99907d54064b8041147184ae476, type: 3}
     - target: {fileID: 3102252996487964230, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.69
@@ -2930,9 +2934,9 @@ GameObject:
   - component: {fileID: 2077141216}
   - component: {fileID: 2077141215}
   - component: {fileID: 2077141218}
-  - component: {fileID: 2077141219}
   - component: {fileID: 2077141220}
   - component: {fileID: 2077141221}
+  - component: {fileID: 2077141219}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3044,7 +3048,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 2077141217}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 1073741824
+    m_Bits: 3221225472
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0

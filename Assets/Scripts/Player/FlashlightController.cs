@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Audio;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -31,6 +32,8 @@ public class FlashlightController : MonoBehaviour
 
     // public properties
     public bool IsHoldingFlashlight { get; private set; } = true;
+    
+    public AudioFx cameraFlashSoundFx;
 
     // public events
     public event Action TakePicture;
@@ -116,6 +119,7 @@ public class FlashlightController : MonoBehaviour
 
     IEnumerator CameraFlash()
     {
+        cameraFlashSoundFx.Play(this);
         flashlight.enabled = true;
         yield return new WaitForSeconds(0.4f);
         flashlight.enabled = false;
