@@ -1,7 +1,7 @@
 # Chuckles (GGJ-2024)
 ![image](https://github.com/tingjs05/GGJ-2024/assets/105273734/9d86abda-5f4b-4255-a6f6-1bb9a8878a82)
-<img src="https://github.com/tingjs05/Chuckles/assets/34125174/38f68317-c18f-4396-8119-c155aca0cf0a" width="49.8%"/>
-<img src="https://github.com/tingjs05/Chuckles/assets/34125174/fff63dd1-4e09-4f4e-9cb0-88c7d2a9dc85" width="49.8%"/>
+<img src="https://github.com/tingjs05/Chuckles/assets/34125174/38f68317-c18f-4396-8119-c155aca0cf0a" width="49%"/>
+<img src="https://github.com/tingjs05/Chuckles/assets/34125174/fff63dd1-4e09-4f4e-9cb0-88c7d2a9dc85" width="49%"/>
 <img src="https://github.com/tingjs05/Chuckles/assets/34125174/02a88f5c-945c-42c7-ad6c-c7f3a95d9e4a" width="200px"/>
 
 
