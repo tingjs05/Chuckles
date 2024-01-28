@@ -2551,13 +2551,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609123341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52e20987d88665544a3ef1ff5f98e1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   watchTimer: {fileID: 630219479}
   totalTime: 10
+  dayCycle: {fileID: 0}
 --- !u!114 &609123343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6883,21 +6884,25 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3768860197567538852, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 561594140819692495, guid: 354ec3d28da2c9b458661645d96cb9ab, type: 3}
     - target: {fileID: 4665179748048529411, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 609123343}
     - target: {fileID: 4705908078905761124, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44
+      value: -37.25
       objectReference: {fileID: 0}
     - target: {fileID: 4705908078905761124, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -5.97
       objectReference: {fileID: 0}
     - target: {fileID: 4705908078905761124, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -55
+      value: -68.54
       objectReference: {fileID: 0}
     - target: {fileID: 4705908078905761124, guid: 063fa8b88e3d1084abc1d91d0361d708, type: 3}
       propertyPath: m_LocalRotation.w
