@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Screens")]
     public GameObject pauseJournal;
     public GameObject mainUI;
+    public AudioClip openJournal;
 
     [Header("Inventory Icons")]
     public Image cameraSlot;
@@ -23,14 +24,14 @@ public class UIManager : MonoBehaviour
     [Header("Clown Tracking")]
     public float pointerThreshold = 27.5f;
     public RectTransform pointerTransform;
-    public Transform player;
+    public GameObject player;
     public Transform clownTransform;
     public GameObject trackingArrow;
     public GameObject trackingHint;
     public float hintTimer = 7.5f;
 
     private float distToClown;
-
+    private AudioSource audioSource;
 
 
     [Header("Objectives")]
@@ -42,6 +43,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         mainUI.SetActive(true);
         pauseJournal.SetActive(false);
 
@@ -96,9 +99,12 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            audioSource.PlayOneShot(openJournal);
+
             isPaused = !isPaused;
             if (isPaused)
             {
+                player.SetActive(false);
                 mainUI.SetActive(false);
                 pauseJournal.SetActive(true);
 
@@ -106,6 +112,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+                player.SetActive(true);
                 mainUI.SetActive(true);
                 pauseJournal.SetActive(false);
 
@@ -151,11 +158,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickExit()
     {
-        if (Time.timeScale != 1.0f)
-        {
-            Time.timeScale = 1.0f;
-        }
-
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
 
     }
@@ -163,7 +166,7 @@ public class UIManager : MonoBehaviour
     public void ClownTracking()
     {
         Vector3 clownPos = clownTransform.position;
-        Vector3 startPos = player.position;
+        Vector3 startPos = player.transform.position;
 
         Vector3 dirToClown = (clownPos - startPos).normalized;
         distToClown = (clownPos - startPos).magnitude;
