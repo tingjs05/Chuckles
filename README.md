@@ -1,5 +1,9 @@
 # Chuckles (GGJ-2024)
 ![image](https://github.com/tingjs05/GGJ-2024/assets/105273734/9d86abda-5f4b-4255-a6f6-1bb9a8878a82)
+![image](https://github.com/tingjs05/Chuckles/assets/34125174/b252f2ad-293e-44a9-9a53-fa075a5ccd4f)
+![image](https://github.com/tingjs05/Chuckles/assets/34125174/1cb5006e-915f-4491-babb-f05fab79deb9)
+
+
 
 ## Description
 You, the main character, comes from a wealthy family who lives in a huge mansion. Behind this mansion, there is a forest that you and your younger brother enjoy playing in. 
