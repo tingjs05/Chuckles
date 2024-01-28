@@ -841,6 +841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfa12a59c2f4c9fac693c12358c9b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashlight: {fileID: 8988328610709526798}
+  clownVisibleOffset: -25.02
 --- !u!114 &2224256613841923366
 MonoBehaviour:
   m_ObjectHideFlags: 0
