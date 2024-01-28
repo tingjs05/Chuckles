@@ -228,16 +228,16 @@ namespace Enemy
         public void UpdateMovementAnim()
         {
             // get move direction
-            moveDir = (Agent.nextPosition - transform.position).normalized;
+            moveDir = Agent.desiredVelocity.normalized;
 
             // set anim dir based on move dir
-            if (moveDir.z != 0f)
+            if (Mathf.Abs(moveDir.z) >= 0.5f)
             {
-                currMoveDirection = moveDir.z > 0f? MoveType.Right : MoveType.Left;
+                currMoveDirection = moveDir.z > 0f? MoveType.Up : MoveType.Down;
             }
-            else
+            else if (moveDir.x != 0f)
             {
-                currMoveDirection = moveDir.y > 0f? MoveType.Up : MoveType.Down;
+                currMoveDirection = moveDir.x > 0f? MoveType.Right : MoveType.Left;
             }
 
             // set sprint speed
