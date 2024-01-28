@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -146,6 +147,17 @@ public class UIManager : MonoBehaviour
 
             Time.timeScale = 1.0f;
         }
+    }
+
+    public void OnClickExit()
+    {
+        if (Time.timeScale != 1.0f)
+        {
+            Time.timeScale = 1.0f;
+        }
+
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     public void ClownTracking()
