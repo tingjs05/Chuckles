@@ -10,7 +10,9 @@ Since there isn't any evidence suggesting that you are the culprit...
 *(not done)*
 
 ## About
-This is a 2.5D Top-Down Horror game made using the Unity game engine for Global Game Jam 2024 (GGJ 2024)
+This is a 2.5D Top-Down Horror game made using the Unity game engine for Global Game Jam 2024 (GGJ 2024). The theme for this game jam is "Make Me Laugh". We were then given 72 hours to created a game based on this topic. 
+<br><br>
+Instead of going for the obviously happy theme for a game, our decided to put our own twist on the theme. We decided to incoperate the "Laughing" into the clown enemy, who would giggle and laugh as he tries to kill you. The "Make Me Laugh" aspect is also shown when the player needs to laugh into their microphone to try baiting the clown in certain directions to achieve the objective. We hope you enjoy this game!
 
 ## Controls
 
