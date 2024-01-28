@@ -154,12 +154,13 @@ namespace Enemy
 
         public int CheckActionLocation()
         {
-            if (EnemyActions == null || EnemyActions.Length == 0) return;
+            if (EnemyActions == null || EnemyActions.Length == 0) return -1;
 
             for (int i = 0; i < EnemyActions.Length; i++)
             {
                 if (Vector3.Distance(transform.position, EnemyActions[i].locationCenter) <= EnemyActions[i].locationRange) return i;
             }
+            
             return -1;
         }
 
