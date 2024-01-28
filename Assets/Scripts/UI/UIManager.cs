@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
-
     private bool isPaused = false;
 
     [Header("UI Screens")]
@@ -53,6 +51,7 @@ public class UIManager : MonoBehaviour
 
         flashlightController = player.GetComponent<FlashlightController>();
         
+        StartCoroutine(StartPaused(5.0f));
     }
 
     // Update is called once per frame
@@ -69,10 +68,18 @@ public class UIManager : MonoBehaviour
 
     }
 
+    IEnumerator StartPaused(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isPaused = true;
+        player.SetActive(false);
+        mainUI.SetActive(false);
+        pauseJournal.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     void InventorySlots()
     {
-
-
         Color camColour = cameraSlot.color;
         Color flashColour = flashlightSlot.color;
 
@@ -151,6 +158,7 @@ public class UIManager : MonoBehaviour
             isPaused = false;
             mainUI.SetActive(true);
             pauseJournal.SetActive(false);
+            player.SetActive(true);
 
             Time.timeScale = 1.0f;
         }
