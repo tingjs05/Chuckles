@@ -2543,7 +2543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &609123342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,8 +2578,8 @@ MonoBehaviour:
   pointerTransform: {fileID: 1159750035}
   player: {fileID: 177288207}
   clownTransform: {fileID: 480165868}
-  trackingArrow: {fileID: 0}
-  trackingHint: {fileID: 0}
+  trackingArrow: {fileID: 1159750034}
+  trackingHint: {fileID: 263461881}
   hintTimer: 7.5
   objectiveHint: {fileID: 1765361451}
   completionPercentage: 0
