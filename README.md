@@ -2,24 +2,29 @@
 
 _Insert description..._
 
-
 ## Controls
-1. Movement - WASD
-2. Switch flashlight / camera - F
-3. Use Item - Left Mouse Button
-4. Laugh - Spacebar / Hahaha into the microphone
-5. Pause - Escape
+
+| Name                       | Keybind                        |
+|----------------------------|--------------------------------|
+| Movement                   | [W] [A] [S] [D]                |
+| Switch flashlight / camera | [F]                            |
+| Use Item                   | [LMB] (left click)             |
+| Laugh                      | [Space] or hahaha into the mic |
+| Pause                      | [ESC]                          |
 
 
 ## Download & Installation
+
 This project is available on [itch.io](https://notlivingstudios.itch.io/chuckles-ggj-2024)
 
-<a href="https://notlivingstudios.itch.io/chuckles-ggj-2024" target="_blank"><img src="https://static.itch.io/images/badge-color.svg"
+<a href="https://notlivingstudios.itch.io/chuckles-ggj-2024" target="_blank"><img
+src="https://static.itch.io/images/badge-color.svg"
 alt="Available on itch.io" height="60"/></a>
 
-
 # Credits
+
 ## Contributors
+
 <table>
     <tr>
         <td><b>Sprites</b></td>
@@ -37,22 +42,31 @@ alt="Available on itch.io" height="60"/></a>
 </table>
 
 ## Others / Acknowledgements
+
 **Font**
+
 - _Pixel Font - PASSAGE by somepx._ https://somepx.itch.io/pixel-font-passage
-**Sounds Effects**
-- _Freesound - 05966 water surfacing splashes.wav by Robinhood76._ https://freesound.org/people/Robinhood76/sounds/320185/
-- _Freesound - Digital Camera Photo Snap with Autofocus Beep by HughGuiney._  https://freesound.org/people/HughGuiney/sounds/352832/ 
-- _Freesound - River in Forest Ambience.wav by bennathanras._  https://freesound.org/people/bennathanras/sounds/607434/ 
-- _Freesound - rustling paper.wav by keweldog._  https://freesound.org/people/keweldog/sounds/181774/ 
-- _FreeSound - Small_Flashlight_Click_on_03.WaV by Rudmer_Rotteveel._ https://freesound.org/people/Rudmer_Rotteveel/sounds/457462/ 
+  **Sounds Effects**
+- _Freesound - 05966 water surfacing splashes.wav by
+  Robinhood76._ https://freesound.org/people/Robinhood76/sounds/320185/
+- _Freesound - Digital Camera Photo Snap with Autofocus Beep by
+  HughGuiney._  https://freesound.org/people/HughGuiney/sounds/352832/
+- _Freesound - River in Forest Ambience.wav by bennathanras._  https://freesound.org/people/bennathanras/sounds/607434/
+- _Freesound - rustling paper.wav by keweldog._  https://freesound.org/people/keweldog/sounds/181774/
+- _FreeSound - Small_Flashlight_Click_on_03.WaV by
+  Rudmer_Rotteveel._ https://freesound.org/people/Rudmer_Rotteveel/sounds/457462/
 - _FreeSound - Stomp01.wav by JanKoehl._  https://freesound.org/people/JanKoehl/sounds/85600/
 - _Freesound - Footsteps on the dirt road by Antonio_Lai._ https://freesound.org/people/Antonio_Lai/sounds/517422/
 - _Freesound - Clown Laugh by riippumattog._ https://freesound.org/people/riippumattog/sounds/697530/
+
 ## License / Copyright Notice
+
 Unless stated otherwise, All Rights Reserved.
 
 You are granted permission to view, download and build this project for personal, non-commercial use only.
 
-You may not distribute or use any part of this project's content (assets, sprites, source code) without explicit written permission from the corresponding authors and/or copyright holders
+You may not distribute or use any part of this project's content (assets, sprites, source code) without explicit written
+permission from the corresponding authors and/or copyright holders
 
-Other assets in this project might be subjected to other licenses such as the (Standard Unity Asset Store EULA) and (Attribution-NonCommercial 4.0 International)
+Other assets in this project might be subjected to other licenses such as the (Standard Unity Asset Store EULA) and (
+Attribution-NonCommercial 4.0 International)
