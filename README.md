@@ -16,13 +16,13 @@ Instead of going for the obviously happy theme for a game, our decided to put ou
 
 ## Controls
 
-| Name                       | Keybind                        |
-|----------------------------|--------------------------------|
-| Movement                   | [W] [A] [S] [D]                |
-| Switch flashlight / camera | [F]                            |
-| Use Item                   | [LMB] (left click)             |
-| Laugh                      | [Space] or hahaha into the mic |
-| Pause                      | [ESC]                          |
+| Name                       | Keybind                             |
+|----------------------------|-------------------------------------|
+| Movement                   | [W] [A] [S] [D]                     |
+| Switch flashlight / camera | [F]                                 |
+| Use Item                   | [LMB] *(left click)*                |
+| Laugh                      | [Space] **or** [laugh into the mic] |
+| Pause                      | [ESC]                               |
 
 
 ## Download & Installation
