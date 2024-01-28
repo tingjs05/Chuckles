@@ -28,6 +28,8 @@ _Insert description..._
 </table>
 
 ## Others / Acknowledgements
+**Font**
+- _Pixel Font - PASSAGE by somepx._ https://somepx.itch.io/pixel-font-passage
 **Sounds Effects**
 - _Freesound - 05966 water surfacing splashes.wav by Robinhood76._ https://freesound.org/people/Robinhood76/sounds/320185/
 - _Freesound - Digital Camera Photo Snap with Autofocus Beep by HughGuiney._  https://freesound.org/people/HughGuiney/sounds/352832/ 
