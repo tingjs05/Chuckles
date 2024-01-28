@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Enemy
@@ -9,8 +8,6 @@ namespace Enemy
     {
         EnemyStateMachine enemy;
         Vector3 point;
-        Collider[] players;
-        Collider player;
         int actionIndex;
 
         public override void OnEnter(EnemyStateMachine enemy)
@@ -26,53 +23,12 @@ namespace Enemy
         public override void OnUpdate(EnemyStateMachine enemy)
         {
             // check if player is nearby
-            // check if player is within chase range
-            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
+            if (enemy.PlayerNearbyAndPatrol()) return;
 
-            if (players.Length > 0)
-            {
-                player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
+            // if no player and not on action cooldown, try to perform action
+            if (enemy.actionCooldown == null && InActionArea(enemy)) return;
 
-                // if player is within chase range, start chasing player
-                if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
-                {
-                    enemy.SwitchState(enemy.Chase);
-                    return;
-                }
-
-                // otherwise, check if player is within line of sight.
-                // if player is within line of sight, start chasing player
-                RaycastHit hit;
-                if (!Physics.Raycast(enemy.transform.position, (player.transform.position - enemy.transform.position).normalized, out hit, Mathf.Infinity, enemy.obstacleMask))
-                {
-                    enemy.SwitchState(enemy.Chase);
-                    return;
-                }
-
-                // if cannot see and not within chase range, switch to alerted state
-                enemy.SwitchState(enemy.Alert);
-            }
-
-            // if no player, try to perform action
-            // check for action location
-            actionIndex = enemy.CheckActionLocation();
-
-            if (actionIndex != -1)
-            {
-                enemy.Agent.SetDestination(enemy.EnemyActions[actionIndex].actionLocation);
-
-                // check if player is at action location
-                if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
-                {
-                    enemy.GoToActionLocation(actionIndex);
-                    enemy.SwitchState(enemy.EnemyActions[actionIndex].state);
-                }
-
-                return;
-            }
-
-            // otherwise, just patrol the area
-            // set a random location to walk towards to patrol
+            // otherwise, just patrol the area, set a random location to walk towards to patrol
             if (!(enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)) return;
             
             if (!enemy.RandomPoint(enemy.transform.position, enemy.patrolRange, out point)) return;
@@ -86,11 +42,35 @@ namespace Enemy
             CameraCapture.TakenPictureOfEnemy -= PictureTaken;
         }
 
+        // behaviour checks
+        bool InActionArea(EnemyStateMachine enemy)
+        {
+            // random chance to choose not to perform action
+            if (Random.Range(0f, 1f) > enemy.actionChance) return false;
+
+            // check for action location
+            actionIndex = enemy.CheckActionLocation();
+
+            if (actionIndex == -1) return false;
+
+            enemy.Agent.SetDestination(enemy.EnemyActions[actionIndex].actionLocation);
+
+            // check if player is at action location
+            if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
+            {
+                enemy.GoToActionLocation(actionIndex);
+                enemy.SwitchState(enemy.EnemyActions[actionIndex].state);
+            }
+
+            return true;
+        }
+
+        // event listeners
         void PictureTaken(float pictureQuality)
         {
             // chase player if player takes a photo within the detection range of the enemy
             if (enemy == null) return;
-            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
+            Collider[] players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
             if (players.Length > 0) enemy.SwitchState(enemy.Chase);
         }
     }

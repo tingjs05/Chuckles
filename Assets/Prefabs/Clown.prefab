@@ -299,6 +299,11 @@ MonoBehaviour:
     m_Bits: 256
   showDetectionRanges: 0
   showActionLocations: 1
+  minActionDuration: 5
+  maxActionDuration: 15
+  minActionCooldown: 25
+  maxActionCooldown: 45
+  actionChance: 0.3
   <EnemyActions>k__BackingField:
   - actionName: Playground
     actionLocation: {x: -31.42, y: -5.12, z: -56.379}

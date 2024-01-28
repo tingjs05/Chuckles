@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -41,17 +42,27 @@ namespace Enemy
         public EnemyChaseState Chase { get; private set; } = new EnemyChaseState();
         public EnemyStunState Stun { get; private set; } = new EnemyStunState();
 
+        [Header("Actions")]
+        public float minActionDuration = 5f;
+        public float maxActionDuration = 15f;
+        public float minActionCooldown = 25f;
+        public float maxActionCooldown = 45f;
+        [Range(0f, 1f)] public float actionChance = 0.3f;
         // action states
-        [field: Header("Actions")]
         [field: SerializeField] public EnemyAction[] EnemyActions { get; private set; }
 
         // components
         public NavMeshAgent Agent { get; private set; }
+        public Rigidbody rb { get; private set; }
+
+        // action cooldown coroutine
+        [HideInInspector] public Coroutine actionCooldown;
 
         void Start()
         {
             // get components
             Agent = GetComponent<NavMeshAgent>();
+            rb = GetComponent<Rigidbody>();
 
             // disable rotation and movement for navmesh agent
             Agent.updateRotation = false;
@@ -98,6 +109,35 @@ namespace Enemy
             State.OnEnter(this);
         }
 
+        public bool PlayerNearbyAndPatrol()
+        {
+            // check if player is within chase range
+            Collider[] players = Physics.OverlapSphere(transform.position, alertRange, playerMask);
+
+            if (players.Length <= 0) return false;
+
+            Collider player = players.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToArray()[0];
+
+            // if player is within chase range, start chasing player
+            if (Vector3.Distance(transform.position, player.transform.position) > chaseRange)
+            {
+                SwitchState(Chase);
+                return true;
+            }
+
+            // otherwise, check if player is within line of sight, if player is within line of sight, start chasing player
+            RaycastHit hit;
+            if (!Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, obstacleMask))
+            {
+                SwitchState(Chase);
+                return true;
+            }
+
+            // if cannot see and not within chase range, switch to alerted state
+            SwitchState(Alert);
+            return true;
+        }
+
         public bool RandomPoint(Vector3 center, float range, out Vector3 result)
         {
             Vector3 randomPoint = center + Random.insideUnitSphere * range;
@@ -124,8 +164,19 @@ namespace Enemy
         public void GoToActionLocation(int i)
         {
             Agent.SetDestination(EnemyActions[i].actionLocation);
-            Agent.Warp(EnemyActions[i].actionLocation);
-            Agent.updatePosition = false;
+            Agent.enabled = false;
+            transform.position = EnemyActions[i].actionLocation;
+        }
+
+        public void StartActionCooldown()
+        {
+            actionCooldown = StartCoroutine(ActionCooldown(Random.Range(minActionCooldown, (maxActionCooldown + 1f))));
+        }
+
+        IEnumerator ActionCooldown(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            actionCooldown = null;
         }
     }
 }
