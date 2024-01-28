@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Player;
 
 namespace Enemy
 {
@@ -38,8 +39,8 @@ namespace Enemy
 
             player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
 
-            // if player is within chase range, start chasing player
-            if (Vector3.Distance(enemy.transform.position, player.transform.position) <= enemy.chaseRange)
+            // if player is within chase range or player lit up enemy, start chasing player
+            if (Vector3.Distance(enemy.transform.position, player.transform.position) <= enemy.chaseRange || player.GetComponent<PlayerVisibility>()?.ClownInLight)
             {
                 enemy.Laugh.OnLaugh();
                 enemy.SwitchState(enemy.Chase);
