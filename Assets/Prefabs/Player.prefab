@@ -826,8 +826,8 @@ MonoBehaviour:
   movingPenalty: 65
   distancePenalty: 70
   centralisedPenalty: 50
-  maxDistance: 10
-  distanceThreshold: 0.5
+  maxDistance: 12
+  distanceThreshold: 0.8
   centralisedThreshold: 0.8
 --- !u!114 &7216058145380320788
 MonoBehaviour:
