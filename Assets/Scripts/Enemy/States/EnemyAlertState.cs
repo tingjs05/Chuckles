@@ -39,7 +39,7 @@ namespace Enemy
             player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
 
             // if player is within chase range, start chasing player
-            if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
+            if (Vector3.Distance(enemy.transform.position, player.transform.position) <= enemy.chaseRange)
             {
                 enemy.Laugh.OnLaugh();
                 enemy.SwitchState(enemy.Chase);
