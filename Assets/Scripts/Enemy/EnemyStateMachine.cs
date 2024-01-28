@@ -29,6 +29,7 @@ namespace Enemy
         public float minGiggleCooldown = 10f;
         public float maxGiggleCooldown = 25f;
         [field: SerializeField] public LaughGenerator Laugh { get; private set; }
+        [SerializeField] private UIManager uiManager;
 
         [Header("Layer Masks")]
         public LayerMask playerMask;
@@ -72,8 +73,16 @@ namespace Enemy
             get { return giggle; }
             set 
             {
-                if (value = true) Laugh.OnGiggle();
+                // set giggle
                 giggle = value;
+                // giggle if value is true
+                if (value == true)
+                {
+                    Laugh.OnGiggle();
+                    // track clown when giggling
+                    if (uiManager != null) uiManager.ClownTracking();
+                }
+                // reset counter variables
                 timeSinceLastGiggle = 0f;
                 currentGiggleCooldown = -1f;
             }
@@ -219,7 +228,11 @@ namespace Enemy
             // giggle if time elapsed is more than cooldown
             if (timeSinceLastGiggle >= currentGiggleCooldown)
             {
+                // track clown when giggling
+                if (uiManager != null) uiManager.ClownTracking();
+                // giggle
                 Laugh.OnGiggle();
+                // reset counter variables
                 timeSinceLastGiggle = 0f;
                 currentGiggleCooldown = -1f;
                 return;
