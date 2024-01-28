@@ -14890,6 +14890,7 @@ MonoBehaviour:
     locationCenter: {x: 46.2, y: -7.4, z: -76.6}
     locationRange: 15.3
     state: {fileID: 4884529553606731508}
+  <Anim>k__BackingField: {fileID: 7739001651877227771}
 --- !u!1 &7619754162599553067
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,12 +57,26 @@ namespace Enemy
         // action states
         [field: SerializeField] public EnemyAction[] EnemyActions { get; private set; }
 
+        [field: Header("Animations")]
+        [field: SerializeField] public Animator Anim { get; private set; }
+
         // components
         public NavMeshAgent Agent { get; private set; }
         public Rigidbody rb { get; private set; }
 
         // action cooldown coroutine
         [HideInInspector] public Coroutine actionCooldown;
+
+        // movement variables
+        private enum MoveType
+        {
+            Up, Down, Left, Right
+        }
+        private MoveType prevMoveDir = MoveType.Down;
+        private bool prevIsRunning = false;
+        private MoveType currMoveDirection;
+        private Vector3 moveDir;
+        private bool isRunning;
 
         // giggle variables
         private float currentGiggleCooldown = -1f;
@@ -210,6 +224,73 @@ namespace Enemy
         {
             actionCooldown = StartCoroutine(ActionCooldown(Random.Range(minActionCooldown, (maxActionCooldown + 1f))));
         }
+
+        public void UpdateMovementAnim()
+        {
+            // get move direction
+            moveDir = (Agent.nextPosition - transform.position).normalized;
+
+            // set anim dir based on move dir
+            if (moveDir.z != 0f)
+            {
+                currMoveDirection = moveDir.z > 0f? MoveType.Right : MoveType.Left;
+            }
+            else
+            {
+                currMoveDirection = moveDir.y > 0f? MoveType.Up : MoveType.Down;
+            }
+
+            // set sprint speed
+            isRunning = Agent.speed == sprintSpeed;
+
+            // do not change animation if animation state hasn't changed
+            if (isRunning == prevIsRunning && currMoveDirection == prevMoveDir) return;
+
+            // cache move dir and is running
+            prevMoveDir = currMoveDirection;
+            prevIsRunning = isRunning;
+
+            // play move animation (yes i am sorry for your eyes, pls bear with me here)
+            if (isRunning)
+            {
+                if (currMoveDirection == MoveType.Left)
+                {
+                    Anim.Play("RunLeft");
+                }
+                else if (currMoveDirection == MoveType.Right)
+                {
+                    Anim.Play("RunRight");
+                }
+                else if (currMoveDirection == MoveType.Up)
+                {
+                    Anim.Play("RunUp");
+                }
+                else
+                {
+                    Anim.Play("RunDown");
+                }
+
+                return;
+            }
+
+            if (currMoveDirection == MoveType.Left)
+            {
+                Anim.Play("WalkLeft");
+            }
+            else if (currMoveDirection == MoveType.Right)
+            {
+                Anim.Play("WalkRight");
+            }
+            else if (currMoveDirection == MoveType.Up)
+            {
+                Anim.Play("WalkUp");
+            }
+            else
+            {
+                Anim.Play("WalkDown");
+            }
+        }
+
 
         IEnumerator ActionCooldown(float duration)
         {

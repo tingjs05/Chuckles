@@ -36,6 +36,9 @@ namespace Enemy
             if (!enemy.RandomPoint(enemy.transform.position, enemy.patrolRange, out point)) return;
 
             enemy.Agent.SetDestination(point);
+
+            // update animation
+            enemy.UpdateMovementAnim();
         }
 
         public override void OnExit(EnemyStateMachine enemy)
