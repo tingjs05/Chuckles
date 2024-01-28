@@ -25,6 +25,12 @@ namespace Enemy
         [Range(0f, 100f)]
         public float pictureQualityStunThreshold = 40f;
 
+        [Header("Laugh")]
+        public float minGiggleCooldown = 10f;
+        public float maxGiggleCooldown = 25f;
+        [field: SerializeField] public LaughGenerator Laugh { get; private set; }
+        [SerializeField] private UIManager uiManager;
+
         [Header("Layer Masks")]
         public LayerMask playerMask;
         public LayerMask obstacleMask;
@@ -52,13 +58,35 @@ namespace Enemy
         [field: SerializeField] public EnemyAction[] EnemyActions { get; private set; }
 
         // components
-        [field: Header("Components")]
-        [field: SerializeField] public LaughGenerator Laugh { get; private set; }
         public NavMeshAgent Agent { get; private set; }
         public Rigidbody rb { get; private set; }
 
         // action cooldown coroutine
         [HideInInspector] public Coroutine actionCooldown;
+
+        // giggle variables
+        private float currentGiggleCooldown = -1f;
+        private float timeSinceLastGiggle = 0f;
+        private bool giggle = false;
+        public bool Giggle 
+        {
+            get { return giggle; }
+            set 
+            {
+                // set giggle
+                giggle = value;
+                // giggle if value is true
+                if (value == true)
+                {
+                    Laugh.OnGiggle();
+                    // track clown when giggling
+                    if (uiManager != null) uiManager.ClownTracking();
+                }
+                // reset counter variables
+                timeSinceLastGiggle = 0f;
+                currentGiggleCooldown = -1f;
+            }
+        }
 
         void Start()
         {
@@ -77,6 +105,8 @@ namespace Enemy
         void Update()
         {
             State.OnUpdate(this);
+            // check for giggle
+            if (giggle) CheckGiggle();
         }
 
         void OnDrawGizmosSelected()
@@ -185,6 +215,31 @@ namespace Enemy
         {
             yield return new WaitForSeconds(duration);
             actionCooldown = null;
+        }
+
+        void CheckGiggle()
+        {
+            // set random giggle cooldown if not set
+            if (currentGiggleCooldown < 0f)
+            {
+                currentGiggleCooldown = Random.Range(minGiggleCooldown, (maxGiggleCooldown + 1f));
+            }
+
+            // giggle if time elapsed is more than cooldown
+            if (timeSinceLastGiggle >= currentGiggleCooldown)
+            {
+                // track clown when giggling
+                if (uiManager != null) uiManager.ClownTracking();
+                // giggle
+                Laugh.OnGiggle();
+                // reset counter variables
+                timeSinceLastGiggle = 0f;
+                currentGiggleCooldown = -1f;
+                return;
+            }
+
+            // increment time elapsed since last giggle
+            timeSinceLastGiggle += Time.deltaTime;
         }
     }
 }

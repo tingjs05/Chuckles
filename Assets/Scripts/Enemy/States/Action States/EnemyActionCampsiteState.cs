@@ -15,6 +15,9 @@ namespace Enemy
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // can giggle
+            enemy.Giggle = true;
+
             // set action duration
             actionDuration = UnityEngine.Random.Range(enemy.minActionDuration, (enemy.maxActionDuration + 1f));
             // reset action duration counter
@@ -45,6 +48,9 @@ namespace Enemy
 
         public override void OnExit(EnemyStateMachine enemy)
         {
+            // stop giggle
+            enemy.Giggle = false;
+            
             // allow enemy to move
             enemy.Agent.enabled = true;
             enemy.rb.isKinematic = false;
