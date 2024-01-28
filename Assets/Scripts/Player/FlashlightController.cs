@@ -64,7 +64,6 @@ public class FlashlightController : MonoBehaviour
     {
         HandleInputs();
         HandleFlashlightRotation();
-        anim.SetBool("iscamera", !IsHoldingFlashlight);
     }
 
     void HandleInputs()
