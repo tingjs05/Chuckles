@@ -101,8 +101,10 @@ namespace Dictation
         {
             if (recognizer != null && recognizer.IsRunning)
             {
+                Debug.Log("Destroying listener");
                 recognizer.OnPhraseRecognized -= Recognizer_OnPhraseRecognized;
                 recognizer.Stop();
+                recognizer.Dispose();
             }
         }
 
