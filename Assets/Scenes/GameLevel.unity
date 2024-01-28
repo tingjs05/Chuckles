@@ -2650,6 +2650,7 @@ GameObject:
   - component: {fileID: 609123344}
   - component: {fileID: 609123343}
   - component: {fileID: 609123342}
+  - component: {fileID: 609123345}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2686,17 +2687,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseJournal: {fileID: 2034740945}
   mainUI: {fileID: 1850652457}
+  openJournal: {fileID: 8300000, guid: b1660ce245e59b14a89663d525fcdb3a, type: 3}
   cameraSlot: {fileID: 681865056}
   flashlightSlot: {fileID: 123783066}
   pointerThreshold: 27.5
   pointerTransform: {fileID: 1159750035}
-  player: {fileID: 177288207}
+  player: {fileID: 637760200}
   clownTransform: {fileID: 480165868}
   trackingArrow: {fileID: 1159750034}
   trackingHint: {fileID: 263461881}
   hintTimer: 7.5
   objectiveHint: {fileID: 1765361451}
-  completionPercentage: 0
 --- !u!4 &609123344
 Transform:
   m_ObjectHideFlags: 0
@@ -2712,6 +2713,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &609123345
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609123341}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &610029908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4424396828587804706, guid: 5d623395f3b98764eb57ba101afa76e4, type: 3}
@@ -2846,6 +2943,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6674299924826226340, guid: 5d623395f3b98764eb57ba101afa76e4, type: 3}
+--- !u!1 &637760200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8229870306092936856, guid: d1763b546aa271242980756785662404, type: 3}
+  m_PrefabInstance: {fileID: 878732167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681865054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,7 +3629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.491}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18.400116, y: 3.1941986}
+  m_AnchoredPosition: {x: -20.2, y: 3.1941986}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941807143
@@ -4193,7 +4295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.4, y: 32.5}
+  m_AnchoredPosition: {x: -23.84, y: 32.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167062516
