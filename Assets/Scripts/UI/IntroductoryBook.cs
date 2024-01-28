@@ -8,6 +8,6 @@ public class IntroductoryBook : MonoBehaviour
     // Start is called before the first frame update
     public void OnClickStart()
     {
-
+        SceneManager.LoadScene("GameLevel");
     }
 }
