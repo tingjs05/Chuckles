@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df5bdf2dda448754a90036b61c36cf07
+guid: 354ec3d28da2c9b458661645d96cb9ab
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638420038620017294
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 37
       height: 124
-    spriteID: 5ae5756e827afa547acba594100350b6
+    spriteID: c31480d6d7a545940acabafc9ece3eb9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 4
       width: 43
       height: 124
-    spriteID: 15fd43ed01b3881498bb83448664c008
+    spriteID: e7fa4f6f81fc8144ca828bb2f473d97c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 4
       width: 37
       height: 124
-    spriteID: b5c21ad55cd3dd447bf48868a3b9b24f
+    spriteID: 65306f14b15697a4696c7dc248272733
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 4
       width: 43
       height: 124
-    spriteID: 040e06e63beedf94e8758eb8c36097fe
+    spriteID: 0ea2dd0aa1a4e9340a5f0376735e619b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -215,7 +215,7 @@ ScriptedImporter:
         y: 1
         width: 37
         height: 124
-      spriteId: 5ae5756e827afa547acba594100350b6
+      spriteId: c31480d6d7a545940acabafc9ece3eb9
     - name: Clown_Frame_1
       frameIndex: 1
       cellRect:
@@ -223,7 +223,7 @@ ScriptedImporter:
         y: 3
         width: 43
         height: 124
-      spriteId: 15fd43ed01b3881498bb83448664c008
+      spriteId: e7fa4f6f81fc8144ca828bb2f473d97c
     - name: Clown_Frame_2
       frameIndex: 2
       cellRect:
@@ -231,7 +231,7 @@ ScriptedImporter:
         y: 1
         width: 37
         height: 124
-      spriteId: b5c21ad55cd3dd447bf48868a3b9b24f
+      spriteId: 65306f14b15697a4696c7dc248272733
     - name: Clown_Frame_3
       frameIndex: 3
       cellRect:
@@ -239,10 +239,46 @@ ScriptedImporter:
         y: 3
         width: 43
         height: 124
-      spriteId: 040e06e63beedf94e8758eb8c36097fe
+      spriteId: 0ea2dd0aa1a4e9340a5f0376735e619b
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 128}
