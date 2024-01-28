@@ -1,11 +1,13 @@
-# GGJ-2024
+# Chuckles (GGJ-2024)
 
 _Insert description..._
+
 
 ## Controls
 1. Movement - WASD
 2. Switch flashlight / camera - F
 3. Use Item - Left Mouse Button
+4. Laugh - Spacebar / Hahaha into the microphone
 
 # Credits
 ## Contributors
@@ -33,3 +35,4 @@ _Insert description..._
 - _Freesound - rustling paper.wav by keweldog._  https://freesound.org/people/keweldog/sounds/181774/ 
 - _FreeSound - Small_Flashlight_Click_on_03.WaV by Rudmer_Rotteveel._ https://freesound.org/people/Rudmer_Rotteveel/sounds/457462/ 
 - _FreeSound - Stomp01.wav by JanKoehl._  https://freesound.org/people/JanKoehl/sounds/85600/
+- _Freesound - Footsteps on the dirt road by Antonio_Lai._ https://freesound.org/people/Antonio_Lai/sounds/517422/
