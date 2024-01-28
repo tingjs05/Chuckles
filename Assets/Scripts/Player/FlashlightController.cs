@@ -8,26 +8,41 @@ public class FlashlightController : MonoBehaviour
 {
     // Adjust this speed value to control the rotation speed of the spotlight
     [Header("Control Values")]
-    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField]
+    private float rotationSpeed = 5f;
 
     // References to the lights
     [Header("LightReferences")]
-    [SerializeField] private Light flashlight;
-    [SerializeField] private Light lantern;
+    [SerializeField]
+    private Light flashlight;
+
+    [SerializeField]
+    private Light lantern;
 
     [Header("Flashlight Variables")]
-    [SerializeField] private float flashlightSpotAngle_flashlight = 60f;
-    [SerializeField] private float lanternRange_flashlight = 60f;
+    [SerializeField]
+    private float flashlightSpotAngle_flashlight = 60f;
+
+    [SerializeField]
+    private float lanternRange_flashlight = 60f;
 
     [Header("Camera Variables")]
-    [SerializeField] private float flashlightSpotAngle_camera = 100f;
-    [SerializeField] private float lanternRange_camera = 90f;
-    [SerializeField] private float cameraCooldown = 2f;
+    [SerializeField]
+    private float flashlightSpotAngle_camera = 100f;
+
+    [SerializeField]
+    private float lanternRange_camera = 90f;
+
+    [SerializeField]
+    private float cameraCooldown = 2f;
+
     // camera flash color
-    [SerializeField] private Color cameraFlashColor = Color.white;
-    
+    [SerializeField]
+    private Color cameraFlashColor = Color.white;
+
     [Header("Audio")]
     public AudioFx cameraFlashSoundFx;
+
     public AudioFx flashlightClickSoundFx;
 
     // private variables
@@ -39,17 +54,17 @@ public class FlashlightController : MonoBehaviour
     public bool FlashlightOn { get; private set; } = true;
 
     // public events
-    public event Action TakePicture;
+    public Animator anim;
 
-    private void Start()
-    {
-        originalFlashlightColor = flashlight.color;
-    }
+    private void Start() { originalFlashlightColor = flashlight.color; }
+
+    public event Action TakePicture;
 
     void Update()
     {
         HandleInputs();
         HandleFlashlightRotation();
+        anim.SetBool("iscamera", !IsHoldingFlashlight);
     }
 
     void HandleInputs()
@@ -101,7 +116,8 @@ public class FlashlightController : MonoBehaviour
 
             // Rotate the spotlight towards the target point
             Quaternion rotation = Quaternion.LookRotation(lookDirection);
-            flashlight.transform.rotation = Quaternion.Slerp(flashlight.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            flashlight.transform.rotation =
+                    Quaternion.Slerp(flashlight.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -121,6 +137,7 @@ public class FlashlightController : MonoBehaviour
             lantern.range = lanternRange_camera;
             flashlight.color = cameraFlashColor;
         }
+
         FlashlightOn = flashlight.enabled;
     }
 
