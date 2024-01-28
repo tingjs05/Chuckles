@@ -90,7 +90,7 @@ namespace Enemy
 
         void OnDrawGizmos()
         {
-            if (!showActionLocations || EnemyActions == null || EnemyActions.Length = 0) return;
+            if (!showActionLocations || EnemyActions == null || EnemyActions.Length == 0) return;
 
             // show enemy action locations
             foreach (EnemyAction action in EnemyActions)
@@ -155,7 +155,7 @@ namespace Enemy
         public int CheckActionLocation()
         {
             if (EnemyActions == null || EnemyActions.Length == 0) return;
-            
+
             for (int i = 0; i < EnemyActions.Length; i++)
             {
                 if (Vector3.Distance(transform.position, EnemyActions[i].locationCenter) <= EnemyActions[i].locationRange) return i;
