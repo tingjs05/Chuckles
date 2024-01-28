@@ -11,7 +11,7 @@ namespace Enemy
         float actionDuration;
         float durationInAction;
 
-        public static event Action CapturedWhileInPlayground;
+        public static event Action<float> CapturedWhileInPlayground;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
@@ -72,7 +72,7 @@ namespace Enemy
         void PictureTaken(float pictureQuality)
         {
             // invoke event when photo is taken while in action
-            CapturedWhileInPlayground?.Invoke();
+            CapturedWhileInPlayground?.Invoke(pictureQuality);
 
             // chase player if player takes a photo within the detection range of the enemy
             if (enemy == null) return;

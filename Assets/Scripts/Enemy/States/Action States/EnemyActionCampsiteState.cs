@@ -11,13 +11,13 @@ namespace Enemy
         float actionDuration;
         float durationInAction;
 
-        public static event Action CapturedWhileInCampsite;
+        public static event Action<float> CapturedWhileInCampsite;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
             // play animation
             enemy.Anim.Play("Sit");
-            
+
             // can giggle
             enemy.Giggle = true;
 
@@ -72,7 +72,7 @@ namespace Enemy
         void PictureTaken(float pictureQuality)
         {
             // invoke event when photo is taken while in action
-            CapturedWhileInCampsite?.Invoke();
+            CapturedWhileInCampsite?.Invoke(pictureQuality);
 
             // chase player if player takes a photo within the detection range of the enemy
             if (enemy == null) return;

@@ -13,7 +13,7 @@ namespace Enemy
         Collider player;
         float timeSinceLastLaugh;
 
-        public static event Action CapturedWhileChasing;
+        public static event Action<float> CapturedWhileChasing;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
@@ -71,7 +71,7 @@ namespace Enemy
         void PictureTaken(float pictureQuality)
         {
             // invoke event when picture is taken while chasing player
-            CapturedWhileChasing?.Invoke();
+            CapturedWhileChasing?.Invoke(pictureQuality);
 
             // ensure enemy and player are not null
             if (enemy == null || player == null) return;
