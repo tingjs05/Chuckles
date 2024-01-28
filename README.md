@@ -5,7 +5,7 @@
 <img src="https://github.com/tingjs05/Chuckles/assets/34125174/fff63dd1-4e09-4f4e-9cb0-88c7d2a9dc85" width="49%"/>
 <img src="https://github.com/tingjs05/Chuckles/assets/105273734/92cc1a2c-9a99-4965-9bc6-a7b165124959" width="49%"/>
 
-### !!! Disclaimer !!!
+### ⚠️ Disclaimer ⚠️
 1. **This game uses your microphone!**
 2. **Please get the latest version from https://notlivingstudios.itch.io/chuckles-ggj-2024**
 
