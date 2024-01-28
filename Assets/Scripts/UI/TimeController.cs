@@ -9,7 +9,7 @@ public class TimeController : MonoBehaviour
     private float currentTime;
     public Image watchTimer;
     public float totalTime;
-
+    public DayCycle dayCycle;
     private void Start()
     {
         currentTime = totalTime;
@@ -18,15 +18,17 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTime > 0)
-        {
-            currentTime -= Time.deltaTime;
-            watchTimer.fillAmount = currentTime / totalTime;
-        }
-        else
-        {
-            // wtv goes here
-        }
+        
+        watchTimer.fillAmount = 1-dayCycle.currentTimeNormalised;
+        // if (currentTime > 0)
+        // {
+        //     currentTime -= Time.deltaTime;
+        //     
+        // }
+        // else
+        // {
+        //     // wtv goes here
+        // }
 
     }
 }

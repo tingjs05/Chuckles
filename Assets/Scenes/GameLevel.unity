@@ -2558,6 +2558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   watchTimer: {fileID: 630219479}
   totalTime: 10
+  dayCycle: {fileID: 1350406813}
 --- !u!114 &609123343
 MonoBehaviour:
   m_ObjectHideFlags: 0
