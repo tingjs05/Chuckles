@@ -15,7 +15,7 @@ _Insert description..._
     <tr>
         <td><b>Sprites</b></td>
         <td><b>3D Models</b></td>
-        <td colspan="4"><b>Programmers</b></td>
+        <td colspan="4"><b>Programmers / Others</b></td>
     </tr>
     <tr>
         <td><a href="https://github.com/TeeKaiQi"><img src="https://github.com/TeeKaiQi.png" width="60px;"/><br/><sub>TeeKaiQi</sub></a></td>
