@@ -3641,6 +3641,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 498645860527875859, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 498645860527875859, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.862
+      objectReference: {fileID: 0}
     - target: {fileID: 3102252996487964230, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -4935,7 +4943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 1350406811}
-  secondsInFullDay: 120
+  minutesInFullDay: 10
   dayIntensity: 1
   nightIntensity: 0.1
   currentTimeNormalised: 0
