@@ -10,6 +10,10 @@ namespace Enemy
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // spawn laugh particles
+            enemy.Laugh.OnStunned();
+
+            // resetting some variables
             currentDuration = 0f;
             enemy.Agent.SetDestination(enemy.transform.position); 
         }

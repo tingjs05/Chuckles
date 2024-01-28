@@ -12,6 +12,8 @@ namespace Enemy
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // can giggle
+            enemy.Giggle = true;
             // cache enemy so that event listener can use
             this.enemy = enemy;
             // set speed to walk speed
@@ -38,6 +40,8 @@ namespace Enemy
 
         public override void OnExit(EnemyStateMachine enemy)
         {
+            // stop giggle
+            enemy.Giggle = false;
             // unsubscribe from event
             CameraCapture.TakenPictureOfEnemy -= PictureTaken;
         }
