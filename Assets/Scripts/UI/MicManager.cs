@@ -10,12 +10,12 @@ public class MicManager : MonoBehaviour
     public Image micImg;
     public LaughListener laughListener;
 
-    private bool isEnabled;
+    private bool isEnabled = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        micImg.color = Color.green;
     }
 
     // Update is called once per frame
