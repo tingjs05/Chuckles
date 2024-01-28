@@ -8,6 +8,7 @@ _Insert description..._
 2. Switch flashlight / camera - F
 3. Use Item - Left Mouse Button
 4. Laugh - Spacebar / Hahaha into the microphone
+5. Pause - Escape
 
 
 ## Download & Installation
