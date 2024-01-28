@@ -39,11 +39,7 @@ public class Movement : MonoBehaviour
         
         animator.SetFloat("x",lastInput.x);
         animator.SetFloat("z",lastInput.z);
-        if (!IsMoving)
-        {
-            int hash = animator.GetCurrentAnimatorStateInfo(0).fullPathHash;
-            animator.Play(hash, 0, 0f);
-        }
+
         
         
     }
