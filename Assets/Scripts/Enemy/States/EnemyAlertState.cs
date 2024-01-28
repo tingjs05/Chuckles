@@ -9,6 +9,7 @@ namespace Enemy
     public class EnemyAlertState : EnemyBaseState
     {
         EnemyStateMachine enemy;
+        PlayerVisibility visibility;
         Vector3 point;
         Collider[] players;
         Collider player;
@@ -38,9 +39,10 @@ namespace Enemy
             }
 
             player = players.OrderBy(x => Vector3.Distance(enemy.transform.position, x.transform.position)).ToArray()[0];
+            visibility = player.GetComponent<PlayerVisibility>();
 
             // if player is within chase range or player lit up enemy, start chasing player
-            if (Vector3.Distance(enemy.transform.position, player.transform.position) <= enemy.chaseRange || player.GetComponent<PlayerVisibility>()?.ClownInLight)
+            if ((Vector3.Distance(enemy.transform.position, player.transform.position) <= enemy.chaseRange) || (visibility!= null && visibility.ClownInLight))
             {
                 enemy.Laugh.OnLaugh();
                 enemy.SwitchState(enemy.Chase);
