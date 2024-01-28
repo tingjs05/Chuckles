@@ -11,11 +11,16 @@ namespace Enemy
         EnemyStateMachine enemy;
         Collider[] players;
         Collider player;
+        float timeSinceLastLaugh;
 
         public static event Action CapturedWhileChasing;
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // spawn laugh particles
+            enemy.Laugh.OnCharge();
+            // reset laugh time elapsed counter
+            timeSinceLastLaugh = 0f;
             // cache enemy so that event listener can use
             this.enemy = enemy;
             // set speed to sprint speed
@@ -26,6 +31,17 @@ namespace Enemy
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
+            // laugh after certain period
+            if (timeSinceLastLaugh >= 3.0f)
+            {
+                enemy.Laugh.OnCharge();
+                timeSinceLastLaugh = 0f;
+            }
+            else
+            {
+                timeSinceLastLaugh += Time.deltaTime;
+            }
+
             // check if player is within range
             players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
 

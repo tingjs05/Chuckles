@@ -36,6 +36,7 @@ namespace Enemy
             // if player is within chase range, start chasing player
             if (Vector3.Distance(enemy.transform.position, player.transform.position) > enemy.chaseRange)
             {
+                enemy.Laugh.OnLaugh();
                 enemy.SwitchState(enemy.Chase);
                 return;
             }

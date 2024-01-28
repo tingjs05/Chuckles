@@ -52,6 +52,8 @@ namespace Enemy
         [field: SerializeField] public EnemyAction[] EnemyActions { get; private set; }
 
         // components
+        [field: Header("Components")]
+        [field: SerializeField] public LaughGenerator Laugh { get; private set; }
         public NavMeshAgent Agent { get; private set; }
         public Rigidbody rb { get; private set; }
 
@@ -116,6 +118,9 @@ namespace Enemy
 
             if (players.Length <= 0) return false;
 
+            // spawn laugh particles when found player
+            Laugh.OnLaugh();
+
             Collider player = players.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToArray()[0];
 
             // if player is within chase range, start chasing player
@@ -160,7 +165,7 @@ namespace Enemy
             {
                 if (Vector3.Distance(transform.position, EnemyActions[i].locationCenter) <= EnemyActions[i].locationRange) return i;
             }
-            
+
             return -1;
         }
 
