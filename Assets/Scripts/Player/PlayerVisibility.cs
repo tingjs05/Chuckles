@@ -18,6 +18,8 @@ namespace Player
         private Transform clownTransform;
         private SpriteRenderer clownRenderer;
 
+        public bool ClownInLight { get; private set; } = false;
+
         private void Start()
         {
             flashlightController = GetComponent<FlashlightController>();
@@ -45,7 +47,8 @@ namespace Player
             // Debug.Log(angle);
             // Debug.DrawRay(transform.position, forward * 10, Color.green);
             // Debug.DrawRay(transform.position, toClown * 10, Color.blue);
-            clownRenderer.enabled = withinAngle || toClown.magnitude <= clownVisibleDistance;
+            ClownInLight = withinAngle || toClown.magnitude <= clownVisibleDistance;
+            clownRenderer.enabled = ClownInLight;
         }
         
         private void Update()
