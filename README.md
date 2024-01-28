@@ -36,6 +36,7 @@ _Insert description..._
 - _FreeSound - Small_Flashlight_Click_on_03.WaV by Rudmer_Rotteveel._ https://freesound.org/people/Rudmer_Rotteveel/sounds/457462/ 
 - _FreeSound - Stomp01.wav by JanKoehl._  https://freesound.org/people/JanKoehl/sounds/85600/
 - _Freesound - Footsteps on the dirt road by Antonio_Lai._ https://freesound.org/people/Antonio_Lai/sounds/517422/
+- _Freesound - Clown Laugh by riippumattog._ https://freesound.org/people/riippumattog/sounds/697530/
 ## License / Copyright Notice
 Unless stated otherwise, All Rights Reserved.
 
