@@ -1,16 +1,35 @@
 # Chuckles (GGJ-2024)
+![image](https://github.com/tingjs05/GGJ-2024/assets/105273734/9d86abda-5f4b-4255-a6f6-1bb9a8878a82)
+<img src="https://github.com/tingjs05/Chuckles/assets/34125174/38f68317-c18f-4396-8119-c155aca0cf0a" width="49%"/>
+<img src="https://github.com/tingjs05/Chuckles/assets/34125174/fff63dd1-4e09-4f4e-9cb0-88c7d2a9dc85" width="49%"/>
+<img src="https://github.com/tingjs05/Chuckles/assets/34125174/02a88f5c-945c-42c7-ad6c-c7f3a95d9e4a" width="200px"/>
 
-_Insert description..._
+
+## Description
+You remember it as clear as day - the clown that took him
+
+**Its powdered face was white as bone, its dropped jaw that bore an eerie grin.**
+
+You remember how your screams made it laugh.
+
+Equipped with only a camera and a flashlight, you must confront your deepest fears and venture back into the ominous woods where the clown struck. Every step is fraught with suspense, and every shadow conceals a potential threat. The atmosphere is thick with tension as you navigate through the eerie surroundings, desperately seeking to capture evidence of the clown's existence.
+
+Will you live to tell the tale? Or will the chuckles of the clown continue to haunt the woods?
+
+## About
+This is a 2.5D Top-Down Horror game made using the Unity game engine for Global Game Jam 2024 (GGJ 2024). The theme for this game jam is "Make Me Laugh". We were then given 72 hours to created a game based on this topic. 
+<br><br>
+Instead of going for the obviously happy theme for a game, our decided to put our own twist on the theme. We decided to incoperate the "Laughing" into the clown enemy, who would giggle and laugh as he tries to kill you. The "Make Me Laugh" aspect is also shown when the player needs to laugh into their microphone to try baiting the clown in certain directions to achieve the objective. We hope you enjoy this game!
 
 ## Controls
 
-| Name                       | Keybind                        |
-|----------------------------|--------------------------------|
-| Movement                   | [W] [A] [S] [D]                |
-| Switch flashlight / camera | [F]                            |
-| Use Item                   | [LMB] (left click)             |
-| Laugh                      | [Space] or hahaha into the mic |
-| Pause                      | [ESC]                          |
+| Name                       | Keybind                             |
+|----------------------------|-------------------------------------|
+| Movement                   | [W] [A] [S] [D]                     |
+| Switch flashlight / camera | [F]                                 |
+| Use Item                   | [LMB] *(left click)*                |
+| Laugh                      | [Space] **or** [laugh into the mic] |
+| Pause                      | [ESC]                               |
 
 
 ## Download & Installation
@@ -44,9 +63,9 @@ alt="Available on itch.io" height="60"/></a>
 ## Others / Acknowledgements
 
 **Font**
-
 - _Pixel Font - PASSAGE by somepx._ https://somepx.itch.io/pixel-font-passage
-  **Sounds Effects**
+  
+**Sounds Effects**
 - _Freesound - 05966 water surfacing splashes.wav by
   Robinhood76._ https://freesound.org/people/Robinhood76/sounds/320185/
 - _Freesound - Digital Camera Photo Snap with Autofocus Beep by

@@ -18,7 +18,7 @@ public class Water : MonoBehaviour
         Movement move = other.GetComponent<Movement>();
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
-            splash.Play(this);
+            splash.Play(this, other.transform.position);
             if (move != null )
             {
                 move.speed /= 2;

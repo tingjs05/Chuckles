@@ -16,6 +16,7 @@ public class MicManager : MonoBehaviour
     void Start()
     {
         micImg.color = Color.green;
+        laughListener.StartListener();
     }
 
     // Update is called once per frame
@@ -32,15 +33,12 @@ public class MicManager : MonoBehaviour
             laughListener.DestroyListener();
 
             micImg.color = Color.red;
-
         }
         else
         {
             laughListener.StartListener();
 
             micImg.color = Color.green;
-
-
         }
     }
 
