@@ -14874,7 +14874,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   showDetectionRanges: 0
-  showActionLocations: 0
+  showActionLocations: 1
   minActionDuration: 5
   maxActionDuration: 15
   minActionCooldown: 25
@@ -14882,12 +14882,12 @@ MonoBehaviour:
   actionChance: 0.3
   <EnemyActions>k__BackingField:
   - actionName: Playground
-    actionLocation: {x: -31.42, y: -6.66, z: -56.379}
+    actionLocation: {x: -31.42, y: -6.6, z: -57.14}
     locationCenter: {x: -29.3, y: -5.98, z: -61.56}
     locationRange: 11.3
     state: {fileID: 6232690842835560943}
   - actionName: Campsite
-    actionLocation: {x: 47.64, y: -7.25, z: -71.368}
+    actionLocation: {x: 47.64, y: -7, z: -72.4}
     locationCenter: {x: 46.2, y: -7.4, z: -76.6}
     locationRange: 15.3
     state: {fileID: 4884529553606731508}

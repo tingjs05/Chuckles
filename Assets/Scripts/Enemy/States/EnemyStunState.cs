@@ -13,6 +13,9 @@ namespace Enemy
             // spawn laugh particles
             enemy.Laugh.OnStunned();
 
+            // play animation
+            enemy.Anim.Play("Stunned");
+
             // resetting some variables
             currentDuration = 0f;
             enemy.Agent.SetDestination(enemy.transform.position); 

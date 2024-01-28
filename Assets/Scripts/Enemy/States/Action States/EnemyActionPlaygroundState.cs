@@ -15,6 +15,9 @@ namespace Enemy
 
         public override void OnEnter(EnemyStateMachine enemy)
         {
+            // play animation
+            enemy.Anim.Play("Sit");
+
             // can giggle
             enemy.Giggle = true;
 
