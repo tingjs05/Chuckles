@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1598755587144117920}
   - component: {fileID: 3768860197567538852}
+  - component: {fileID: 7739001651877227771}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7739001651877227771
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976135682007653520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2ffd00e56a59184d8a7045f7c36c2b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1610421468344473519
 GameObject:
   m_ObjectHideFlags: 0
@@ -14840,6 +14862,10 @@ MonoBehaviour:
   stunDuration: 1.5
   stunDistance: 12
   pictureQualityStunThreshold: 70
+  minGiggleCooldown: 10
+  maxGiggleCooldown: 25
+  <Laugh>k__BackingField: {fileID: 2610955299006886811}
+  uiManager: {fileID: 0}
   playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14864,7 +14890,6 @@ MonoBehaviour:
     locationCenter: {x: 46.2, y: -7.4, z: -76.6}
     locationRange: 15.3
     state: {fileID: 4884529553606731508}
-  <Laugh>k__BackingField: {fileID: 2610955299006886811}
 --- !u!1 &7619754162599553067
 GameObject:
   m_ObjectHideFlags: 0
