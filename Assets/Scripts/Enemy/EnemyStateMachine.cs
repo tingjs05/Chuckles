@@ -104,6 +104,9 @@ namespace Enemy
             }
         }
 
+        // event to trigger lose condition
+        public static event System.Action KilledPlayer;
+
         void Start()
         {
             // get components
@@ -124,6 +127,14 @@ namespace Enemy
             State.OnUpdate(this);
             // check for giggle
             if (giggle) CheckGiggle();
+        }
+
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.collider.CompareTag("Player"))
+            {
+                KilledPlayer?.Invoke();
+            }    
         }
 
         void OnDrawGizmosSelected()
