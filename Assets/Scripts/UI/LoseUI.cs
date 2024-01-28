@@ -31,6 +31,9 @@ public class LoseUI : MonoBehaviour
 
     void Start()
     {
+        // destroy gamemanager
+        if (GameManager.Instance != null) Destroy(GameManager.Instance.gameObject);
+
         caughtUI.SetActive(true);
         loseUI.SetActive(false);
 
@@ -41,12 +44,6 @@ public class LoseUI : MonoBehaviour
 
 
         StartCoroutine(InstantiateUIPrefabs());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator InstantiateUIPrefabs()

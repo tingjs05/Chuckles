@@ -35,8 +35,6 @@ public class UIManager : MonoBehaviour
 
     [Header("Objectives")]
     public TextMeshProUGUI objectiveHint;
-    [Range(0f, 1f)] public float completionPercentage;
-    
     private FlashlightController flashlightController;
 
 
@@ -118,15 +116,17 @@ public class UIManager : MonoBehaviour
 
     void JournalEntries()
     {
-        if (completionPercentage >= 1)
+        if (GameManager.Instance == null) return;
+
+        if (GameManager.Instance.ObjectiveProgress >= 1)
         {
             objectiveHint.text = "If no one believes this, then everyone's a fool.";
         }
-        else if (completionPercentage >= 0.75f)
+        else if (GameManager.Instance.ObjectiveProgress >= 0.75f)
         {
             objectiveHint.text = "I've gotten more than enough. I need to get out";
         }
-        else if (completionPercentage >= 0.5f)
+        else if (GameManager.Instance.ObjectiveProgress >= 0.5f)
         {
             objectiveHint.text = "It would be great if I've gotten more; But this can do.";
         }
