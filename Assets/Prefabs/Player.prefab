@@ -805,6 +805,7 @@ MonoBehaviour:
   flashlightClickSoundFx:
     clip: {fileID: 8300000, guid: 6ce892aa606612b479a052c816e58e70, type: 3}
     delaySeconds: 0
+  anim: {fileID: 2262645649008284805}
 --- !u!114 &4945307964600115789
 MonoBehaviour:
   m_ObjectHideFlags: 0
