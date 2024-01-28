@@ -104,6 +104,9 @@ namespace Enemy
             }
         }
 
+        // event to trigger lose condition
+        public static event System.Action KilledPlayer;
+
         void Start()
         {
             // get components
@@ -124,6 +127,14 @@ namespace Enemy
             State.OnUpdate(this);
             // check for giggle
             if (giggle) CheckGiggle();
+        }
+
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.collider.CompareTag("Player"))
+            {
+                KilledPlayer?.Invoke();
+            }    
         }
 
         void OnDrawGizmosSelected()
@@ -177,15 +188,7 @@ namespace Enemy
                 return true;
             }
 
-            // otherwise, check if player is within line of sight, if player is within line of sight, start chasing player
-            RaycastHit hit;
-            if (!Physics.Raycast(transform.position, (player.transform.position - transform.position).normalized, out hit, Mathf.Infinity, obstacleMask))
-            {
-                SwitchState(Chase);
-                return true;
-            }
-
-            // if cannot see and not within chase range, switch to alerted state
+            // if not within chase range, switch to alerted state
             SwitchState(Alert);
             return true;
         }
