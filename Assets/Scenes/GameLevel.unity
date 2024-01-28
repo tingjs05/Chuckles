@@ -3154,6 +3154,10 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 2077141217}
+    - target: {fileID: 7216058145380320788, guid: d1763b546aa271242980756785662404, type: 3}
+      propertyPath: clownVisibleOffset
+      value: -25.02
+      objectReference: {fileID: 0}
     - target: {fileID: 8229870306092936856, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: m_Name
       value: Player

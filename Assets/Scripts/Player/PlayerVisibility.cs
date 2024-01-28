@@ -4,17 +4,23 @@ using UnityEngine;
 
 namespace Player
 {
+    [RequireComponent(typeof(FlashlightController))]
     public class PlayerVisibility : MonoBehaviour
     {
         
         private List<Renderer> renderers = new();
+        private FlashlightController flashlightController;
         public Light flashlight;
+        
+        public float clownVisibleOffset;
+        public float clownVisibleDistance => clownVisibleOffset + flashlight.range;
 
         private Transform clownTransform;
         private SpriteRenderer clownRenderer;
 
         private void Start()
         {
+            flashlightController = GetComponent<FlashlightController>();
             clownTransform = GameObject.FindWithTag("Enemy")?.transform;
             clownRenderer = clownTransform?.GetComponentInChildren<SpriteRenderer>();
         }
@@ -26,14 +32,20 @@ namespace Player
             forward.Normalize();
             
             var toClown = clownTransform.position - transform.position;
-            toClown.y = 0;
-            toClown.Normalize();
+            var normToClown = toClown;
+            normToClown.y = 0;
+            normToClown.Normalize();
             
-            var angle = Vector3.Angle(forward, toClown);
+            var angle = Vector3.Angle(forward, normToClown.normalized);
+            bool withinAngle =  !(angle > (flashlight.spotAngle / 2 + 1));
+            if (! flashlight.enabled)
+            {
+                withinAngle = false;
+            }
             // Debug.Log(angle);
             // Debug.DrawRay(transform.position, forward * 10, Color.green);
             // Debug.DrawRay(transform.position, toClown * 10, Color.blue);
-            clownRenderer.enabled = !(angle > (flashlight.spotAngle / 2 + 1));
+            clownRenderer.enabled = withinAngle || toClown.magnitude <= clownVisibleDistance;
         }
         
         private void Update()
@@ -57,5 +69,11 @@ namespace Player
             }
         }
 
+
+        private void OnDrawGizmosSelected()
+        {
+           Gizmos.color = Color.cyan;
+           Gizmos.DrawWireSphere(transform.position, clownVisibleDistance);
+        }
     }
 }
