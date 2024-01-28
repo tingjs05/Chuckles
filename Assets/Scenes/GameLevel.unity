@@ -2558,6 +2558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   watchTimer: {fileID: 630219479}
   totalTime: 10
+  dayCycle: {fileID: 1350406813}
 --- !u!114 &609123343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4087,6 +4088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1350406812}
   - component: {fileID: 1350406811}
+  - component: {fileID: 1350406813}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4171,6 +4173,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1350406813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350406810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b2f5693414918b9918384f6cc6457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sun: {fileID: 1350406811}
+  secondsInFullDay: 120
+  dayIntensity: 1
+  nightIntensity: 0.1
+  currentTimeNormalised: 0
+  timeMultiplier: 1
 --- !u!1 &1354627885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 5d623395f3b98764eb57ba101afa76e4, type: 3}
