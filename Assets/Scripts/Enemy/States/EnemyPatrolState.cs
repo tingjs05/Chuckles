@@ -24,6 +24,9 @@ namespace Enemy
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
+            // update animation
+            enemy.UpdateMovementAnim();
+
             // check if player is nearby
             if (enemy.PlayerNearbyAndPatrol()) return;
 
@@ -36,9 +39,6 @@ namespace Enemy
             if (!enemy.RandomPoint(enemy.transform.position, enemy.patrolRange, out point)) return;
 
             enemy.Agent.SetDestination(point);
-
-            // update animation
-            enemy.UpdateMovementAnim();
         }
 
         public override void OnExit(EnemyStateMachine enemy)

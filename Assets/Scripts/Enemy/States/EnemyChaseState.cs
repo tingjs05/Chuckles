@@ -31,6 +31,9 @@ namespace Enemy
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
+            // update animation
+            enemy.UpdateMovementAnim();
+            
             // laugh after certain period
             if (timeSinceLastLaugh >= 3.0f)
             {
@@ -57,9 +60,6 @@ namespace Enemy
 
             // get the location below the player and try to move there
             enemy.Agent.SetDestination(player.transform.position);
-
-            // update animation
-            enemy.UpdateMovementAnim();
         }
 
         public override void OnExit(EnemyStateMachine enemy)

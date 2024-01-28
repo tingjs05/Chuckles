@@ -228,7 +228,6 @@ namespace Enemy
         public void UpdateMovementAnim()
         {
             // get move direction
-            // moveDir = (Agent.nextPosition - transform.position).normalized;
             moveDir = Agent.desiredVelocity.normalized;
 
             // set anim dir based on move dir
@@ -236,7 +235,7 @@ namespace Enemy
             {
                 currMoveDirection = moveDir.z > 0f? MoveType.Up : MoveType.Down;
             }
-            else
+            else if (moveDir.x != 0f)
             {
                 currMoveDirection = moveDir.x > 0f? MoveType.Right : MoveType.Left;
             }
