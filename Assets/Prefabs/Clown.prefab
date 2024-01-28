@@ -14874,7 +14874,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   showDetectionRanges: 0
-  showActionLocations: 1
+  showActionLocations: 0
   minActionDuration: 5
   maxActionDuration: 15
   minActionCooldown: 25
