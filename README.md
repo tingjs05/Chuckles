@@ -6,12 +6,15 @@
 
 
 ## Description
-You, the main character, comes from a wealthy family who lives in a huge mansion. Behind this mansion, there is a forest that you and your younger brother enjoy playing in. 
-<br><br>
-However, on that fateful night, your brother was ambushed by some clown, and went missing. When the police came to investigate in the morning, no body was found, there was no evidence. You kept telling the adults that you saw a clown, but your parents didn't believe you, they thought you were crazy. 
-<br><br>
-Since there isn't any evidence suggesting that you are the culprit...
-*(not done)*
+You remember it as clear as day - the clown that took him
+
+**Its powdered face was white as bone, its dropped jaw that bore an eerie grin.**
+
+You remember how your screams made it laugh.
+
+Equipped with only a camera and a flashlight, you must confront your deepest fears and venture back into the ominous woods where the clown struck. Every step is fraught with suspense, and every shadow conceals a potential threat. The atmosphere is thick with tension as you navigate through the eerie surroundings, desperately seeking to capture evidence of the clown's existence.
+
+Will you live to tell the tale? Or will the chuckles of the clown continue to haunt the woods?
 
 ## About
 This is a 2.5D Top-Down Horror game made using the Unity game engine for Global Game Jam 2024 (GGJ 2024). The theme for this game jam is "Make Me Laugh". We were then given 72 hours to created a game based on this topic. 
