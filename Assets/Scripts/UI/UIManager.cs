@@ -163,6 +163,11 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void OnLeftWoods()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void ClownTracking()
     {
         Vector3 clownPos = clownTransform.position;

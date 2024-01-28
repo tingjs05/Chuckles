@@ -31,6 +31,8 @@ public class LoseUI : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
+
         // destroy gamemanager
         if (GameManager.Instance != null) Destroy(GameManager.Instance.gameObject);
 
@@ -49,8 +51,6 @@ public class LoseUI : MonoBehaviour
     IEnumerator InstantiateUIPrefabs()
     {
         
-        yield return new WaitForSeconds(2.5f);
-
         ambientNoise.SetActive(false);
         clown.SetActive(true);
 
