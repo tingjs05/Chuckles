@@ -9,6 +9,14 @@ _Insert description..._
 3. Use Item - Left Mouse Button
 4. Laugh - Spacebar / Hahaha into the microphone
 
+
+## Download & Installation
+This project is available on [itch.io](https://notlivingstudios.itch.io/chuckles-ggj-2024)
+
+<a href="https://notlivingstudios.itch.io/chuckles-ggj-2024" target="_blank"><img src="https://static.itch.io/images/badge-color.svg"
+alt="Available on itch.io" height="60"/></a>
+
+
 # Credits
 ## Contributors
 <table>
