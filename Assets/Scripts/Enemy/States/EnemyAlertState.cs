@@ -20,13 +20,15 @@ namespace Enemy
             enemy.Agent.speed = enemy.walkSpeed;
             // subscribe to event to listen if photo is taken
             CameraCapture.TakenPictureOfEnemy += PictureTaken;
+            // subscribe to event to listen when within light
+            enemy.Listener.OnLaugh += enemy.CheckChase;
         }
 
         public override void OnUpdate(EnemyStateMachine enemy)
         {
             // update animation
             enemy.UpdateMovementAnim();
-            
+
             players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
 
             if (players.Length <= 0)
@@ -54,16 +56,16 @@ namespace Enemy
 
         public override void OnExit(EnemyStateMachine enemy)
         {
-            // unsubscribe from event
+            // unsubscribe from events
             CameraCapture.TakenPictureOfEnemy -= PictureTaken;
+            enemy.Listener.OnLaugh -= enemy.CheckChase;
         }
 
         void PictureTaken(float pictureQuality)
         {
             // chase player if player takes a photo within the detection range of the enemy
             if (enemy == null) return;
-            players = Physics.OverlapSphere(enemy.transform.position, enemy.alertRange, enemy.playerMask);
-            if (players.Length > 0) enemy.SwitchState(enemy.Chase);
+            enemy.CheckChase();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Dictation;
 
 namespace Enemy
 {
@@ -63,6 +64,7 @@ namespace Enemy
         // components
         public NavMeshAgent Agent { get; private set; }
         public Rigidbody rb { get; private set; }
+        public LaughListener Listener { get; private set; }
 
         // action cooldown coroutine
         [HideInInspector] public Coroutine actionCooldown;
@@ -107,6 +109,7 @@ namespace Enemy
             // get components
             Agent = GetComponent<NavMeshAgent>();
             rb = GetComponent<Rigidbody>();
+            Listener = GetComponent<LaughListener>();
 
             // disable rotation and movement for navmesh agent
             Agent.updateRotation = false;
@@ -185,6 +188,12 @@ namespace Enemy
             // if cannot see and not within chase range, switch to alerted state
             SwitchState(Alert);
             return true;
+        }
+
+        public void CheckChase()
+        {
+            Collider[] players = Physics.OverlapSphere(transform.position, alertRange, playerMask);
+            if (players.Length > 0) SwitchState(Chase);
         }
 
         public bool RandomPoint(Vector3 center, float range, out Vector3 result)
