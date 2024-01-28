@@ -4,7 +4,7 @@ using UnityEngine;
 public class DayCycle : MonoBehaviour
 {
     public Light sun;
-    public float secondsInFullDay = 120f;
+    public float minutesInFullDay = 10f;
 
     public float dayIntensity = 1f;
     public float nightIntensity = 0.1f;
@@ -32,6 +32,6 @@ public class DayCycle : MonoBehaviour
     private void FixedUpdate()
     {
         if (isDay) return;
-        SetTime(currentTimeNormalised + (Time.deltaTime / secondsInFullDay) * timeMultiplier);
+        SetTime(currentTimeNormalised + (Time.deltaTime / (minutesInFullDay * 60f)) * timeMultiplier);
     }
 }
