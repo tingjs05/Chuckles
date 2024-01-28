@@ -3150,26 +3150,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Height
-      value: 1.8162613
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Radius
-      value: 0.36353564
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Center.y
-      value: 0.50055766
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Center.z
-      value: 0.96129227
-      objectReference: {fileID: 0}
-    - target: {fileID: 3675898853723112158, guid: d1763b546aa271242980756785662404, type: 3}
-      propertyPath: m_Direction
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4532246185716303830, guid: d1763b546aa271242980756785662404, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -6961,6 +6941,6 @@ SceneRoots:
   - {fileID: 2077141217}
   - {fileID: 1350406812}
   - {fileID: 543450652100333653}
-  - {fileID: 878732167}
   - {fileID: 1040508794}
+  - {fileID: 878732167}
   - {fileID: 8978389481198164274}
