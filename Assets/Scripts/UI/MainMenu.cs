@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     // Start is called before the first frame update
     public void OnClickPlay()
     {
