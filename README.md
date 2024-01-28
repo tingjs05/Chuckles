@@ -1,6 +1,16 @@
 # Chuckles (GGJ-2024)
+![image](https://github.com/tingjs05/GGJ-2024/assets/105273734/9d86abda-5f4b-4255-a6f6-1bb9a8878a82)
 
-_Insert description..._
+## Description
+You, the main character, comes from a wealthy family who lives in a huge mansion. Behind this mansion, there is a forest that you and your younger brother enjoy playing in. 
+<br><br>
+However, on that fateful night, your brother was ambushed by some clown, and went missing. When the police came to investigate in the morning, no body was found, there was no evidence. You kept telling the adults that you saw a clown, but your parents didn't believe you, they thought you were crazy. 
+<br><br>
+Since there isn't any evidence suggesting that you are the culprit...
+*(not done)*
+
+## About
+This is a 2.5D Top-Down Horror game made using the Unity game engine for Global Game Jam 2024 (GGJ 2024)
 
 ## Controls
 
