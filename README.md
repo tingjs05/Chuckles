@@ -36,3 +36,11 @@ _Insert description..._
 - _FreeSound - Small_Flashlight_Click_on_03.WaV by Rudmer_Rotteveel._ https://freesound.org/people/Rudmer_Rotteveel/sounds/457462/ 
 - _FreeSound - Stomp01.wav by JanKoehl._  https://freesound.org/people/JanKoehl/sounds/85600/
 - _Freesound - Footsteps on the dirt road by Antonio_Lai._ https://freesound.org/people/Antonio_Lai/sounds/517422/
+## License / Copyright Notice
+Unless stated otherwise, All Rights Reserved.
+
+You are granted permission to view, download and build this project for personal, non-commercial use only.
+
+You may not distribute or use any part of this project's content (assets, sprites, source code) without explicit written permission from the corresponding authors and/or copyright holders
+
+Other assets in this project might be subjected to other licenses such as the (Standard Unity Asset Store EULA) and (Attribution-NonCommercial 4.0 International)
