@@ -700,25 +700,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'For 10 long years, no one believed me.
-
-
-    And after 10 long years,
-    I''m going to go back.
-
-
-    I''m going to prove that monster exists.
-
-
-    Even
-    if it''s the last thing I''m going to do.
-
-
-
-
-
-
-'
+  m_text: "For 10 long years, no one believed me.\n\nAnd after 10 long years, \nI'm
+    going back.\n\nI'm going to prove that monster exists.\n\nEven if it's the last
+    thing I'm going to do.\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29e28c78e38c5f4418c82ed149cd1898, type: 2}
   m_sharedMaterial: {fileID: 1900111365725943850, guid: 29e28c78e38c5f4418c82ed149cd1898, type: 2}
