@@ -824,7 +824,7 @@ MonoBehaviour:
   captureArea: {fileID: 5392542135568171693}
   basePictureQuality: 100
   movingPenalty: 65
-  distancePenalty: 70
+  distancePenalty: 35
   centralisedPenalty: 50
   maxDistance: 12
   distanceThreshold: 0.8
