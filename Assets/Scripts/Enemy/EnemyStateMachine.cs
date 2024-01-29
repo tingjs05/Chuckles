@@ -63,7 +63,6 @@ namespace Enemy
 
         // components
         public NavMeshAgent Agent { get; private set; }
-        public Rigidbody rb { get; private set; }
         public LaughListener Listener { get; private set; }
 
         // action cooldown coroutine
@@ -111,7 +110,6 @@ namespace Enemy
         {
             // get components
             Agent = GetComponent<NavMeshAgent>();
-            rb = GetComponent<Rigidbody>();
             Listener = GetComponent<LaughListener>();
 
             // disable rotation and movement for navmesh agent
@@ -182,7 +180,7 @@ namespace Enemy
             Collider player = players.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToArray()[0];
 
             // if player is within chase range, start chasing player
-            if (Vector3.Distance(transform.position, player.transform.position) > chaseRange)
+            if (Vector3.Distance(transform.position, player.transform.position) <= chaseRange)
             {
                 SwitchState(Chase);
                 return true;

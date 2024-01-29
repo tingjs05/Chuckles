@@ -28,7 +28,6 @@ namespace Enemy
 
             // don't allow enemy to move
             enemy.Agent.enabled = false;
-            enemy.rb.isKinematic = true;
 
             // subscribe to event to listen if photo is taken
             CameraCapture.TakenPictureOfEnemy += PictureTaken;
@@ -58,7 +57,6 @@ namespace Enemy
             
             // allow enemy to move
             enemy.Agent.enabled = true;
-            enemy.rb.isKinematic = false;
 
             // unsubscribe from events
             CameraCapture.TakenPictureOfEnemy -= PictureTaken;
