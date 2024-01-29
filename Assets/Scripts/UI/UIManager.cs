@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
 
         flashlightController = player.GetComponent<FlashlightController>();
         
-        StartCoroutine(StartPaused(5.0f));
+        PauseGame();
     }
 
     // Update is called once per frame
@@ -59,23 +59,16 @@ public class UIManager : MonoBehaviour
     {
         JournalEntries();
         InventorySlots();
-        PauseGame();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ClownTracking();
         }
 
-    }
-
-    IEnumerator StartPaused(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        isPaused = true;
-        player.SetActive(false);
-        mainUI.SetActive(false);
-        pauseJournal.SetActive(true);
-        Time.timeScale = 0f;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
     void InventorySlots()
@@ -99,33 +92,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-
-
     void PauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            audioSource.PlayOneShot(openJournal);
+        audioSource.PlayOneShot(openJournal);
 
-            isPaused = !isPaused;
-            if (isPaused)
-            {
-                player.SetActive(false);
-                mainUI.SetActive(false);
-                pauseJournal.SetActive(true);
+        isPaused = !isPaused;
 
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                player.SetActive(true);
-                mainUI.SetActive(true);
-                pauseJournal.SetActive(false);
+        flashlightController.enabled = !isPaused;
 
-                Time.timeScale = 1.0f;
-            }
-        }
+        mainUI.SetActive(!isPaused);
+        pauseJournal.SetActive(isPaused);
+
+        Time.timeScale = isPaused? 0f : 1.0f;
     }
 
     void JournalEntries()
@@ -153,15 +131,7 @@ public class UIManager : MonoBehaviour
    
     public void OnClickResume()
     {
-        if (isPaused)
-        {
-            isPaused = false;
-            mainUI.SetActive(true);
-            pauseJournal.SetActive(false);
-            player.SetActive(true);
-
-            Time.timeScale = 1.0f;
-        }
+        PauseGame();
     }
 
     public void OnClickExit()
